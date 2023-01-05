@@ -1,0 +1,147 @@
+Git+GitHub
+
+cmd> git --help { saber se o git está instalado corretamente no computador}
+
+para criar repositório git { selecionar a pasta desejada clicar com o botão 
+direito do mouse e selecionar "git bash here".
+
+git init > para criar pasta do .git no diretório selecionado
+
+git add "*nome da pasta ou arquivo modificado*" > prepara o arquivo para ser
+adicionado ao controle de versão 
+
+git config --global user.email "*email utilizado no github*" > seleciona conta 
+para fazer os uploads
+
+git config --global user.name "*nome do usuário*" > para identificação 
+
+git remote add origin *adicionar link do repositório ao qual irá adicionar os
+arquivos* > seleciona o repositório na nuvem escolhido para fazer o upload dos
+arquivos selecionados
+
+git push --set-upstream origin master > seleciona a master no git hub para fazer
+os uploads
+
+git status > saber o que foi modificado na pasta
+
+git add . > prepara e adiciona todos os arquivos modificados ao controle de
+versão 
+
+git commit -m "*mensagem indicando o que foi modificado*" > cria commit, onde 
+deve conter resumidamente a mensagem do que foi modificado
+
+git push > envia as atualizações com o commit
+
+git reflog > verifica o histórico de atualizações
+
+git reset --hard *digitar id*> retorna a versão selecionada
+
+git branch > para ver as branchs disponíveis
+
+git branch *nome da branch a ser criada* > cria uma nova branch com o nome escolhido
+
+git checkout *nome da branch que deseja selecionar* > seleciona a branch desejada
+para fazer as modificações
+
+git merge *nome da branch que deseja mesclar as alterações* > é necessário estar 
+na branch a qual deeseja receber as alterações, uni versões (códigos, arquivos, etc)
+
+git pull > traz as atualizações do servidor para a máquina local
+
+git checkout -b *nome da branch* *nome da branch que deseja ser copiada* > cria branch
+a partir da branch que deseja ser copiada
+
+----------------------------------------------___________________________________---------------------------------------------__________________________________-------
+
+passo a passo para mergiar em situações em equipe:
+
+1.git pull da branch principal
+2.gerar uma nova branch a partir da branch principal
+3.trabalar e adicionar novas funcionalidades na nova branch que criou
+4.finalizar o trabalho na branch temporária
+5.git checkout na branch principal
+6.git pull
+7.mergiar(unir) o código da branch temporária com a branch principal (depois de testar)
+8.git push da branch principal
+
+mensagens:
+
+ "no commits yet" = nenhum commit ainda. 
+
+ "Everything up-to-date" = tudo em dia.
+
+ "staging" = encenação { nome usado geralmente em branchs que estão recebendo 
+atualizações que não estão em produção.
+
+referências : 
+https://www.youtube.com/watch?v=kB5e-gTAl_s&t=2610s
+
+git init = cria arquivo git
+git status = verificar status do meu repositórios 
+git add"" =  adiciona o arquivo
+git add . = adiciona todos os arquivos
+git commit -m "" = comiti no git 
+git config --global user.email ""  = email do git hub usado
+git config --global user.name "" = nome 
+git push = envia na nuvem (git hub)
+git remote add origin = adicionar link do repositorio
+
+
+passo a passo pra adicionar :
+
+primeiro verificar o qeu foi editado--
+
+git status = verificar status do meu repositórios 
+//
+
+git add"" =  adiciona o arquivo
+             ou
+git add . = adiciona todos os arquivos
+//
+fazer um commiti--
+
+git commit -m "" = comiti no git
+//
+por ultimo dar um push para enviar ao git
+
+git push = envia na nuvem (git hub)
+
+---------------------------------------------
+
+git reflog = historico das minhas alteracoes
+// voltar a uma versão anterior
+git reset --hard =*usar ID da reflog que quero voltar 
+
+git branch = consigo ver minhas branchs
+git brach +nome = crio uma nova branch
+// a verde é a minha atual
+git checkout +nome = mudo de branch
+
+
+colar comando para upar pra nuvem
+git push --set-upstream origin +nome
+
+git pull= tras atualizacoes do servidor para minha maquina
+
+
+unir branch secundaria para primaria
+1 entrar na bracnh primaria
+git merge = +nome da branch que quero a merge
+
+atualizacao 2.0
+git checkout -b *nome que quero dar a nova branch* master(nome da branch que qeuro mesclar)=
+git branch = ver minha situacao
+
+
+
+
+
+
+
+
+
+
+aula sobre o git que usei (Curso de Git e Github COMPLETO 2021 [Iniciantes] + Desafios + Muita Prática
+)
+
+https://www.youtube.com/watch?v=kB5e-gTAl_s

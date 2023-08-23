@@ -79,6 +79,19 @@ img {
 
 
 
+.left {
+   
+    max-width: 50%;
+}
+.msg {
+    color: #57c576;
+    font-size: 1.3em;
+    letter-spacing: 0.7px;
+    line-height: 32px;
+    margin-bottom: 48px;
+    
+}
+
 .title {
     color: #eb83bf;
     font-size: 3.2em;
@@ -88,13 +101,6 @@ img {
     margin-bottom: 48px;
 }
 
-.msg {
-    color: #57c576;
-    font-size: 1.3em;
-    letter-spacing: 0.7px;
-    line-height: 32px;
-    margin-bottom: 48px;
-}
 
 button.cta {
     border: none;

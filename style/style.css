@@ -68,20 +68,16 @@ header h1 {
     flex: 1;
     display: flex;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.right img {
-    width: 85%;
+img {
+    max-width: 100%;
+    display: block;
 }
 
-.left {
-    max-width: 45%;
-    padding: 40px 64px;
-}
 
-.right {
-    padding: 40px 48px;
-}
 
 .title {
     color: #eb83bf;

@@ -19,69 +19,91 @@
     
     <link rel="stylesheet" href="../projeto_geek/style/indexgeek.css">
 </head>
-<body>
-    <header>
-        <h1>Multiverso News</h1>
+    <body>
+        
+        <header>
+            <h1>Multiverso News</h1>
 
-        <section class="menu">
-            <ul class="menu-list">
-                <a href="./" > <li class="active">Home </li> </a>
-                <a href="./" > <li>Filmes  </li> </a>
-                <a href="./"><li>Séries</li></a>
-                  
-            </ul>
+            <section class="menu">
+                <ul class="menu-list">
+                    <a href="./" > <li class="active">Home </li> </a>
+                    <a href="./" > <li>Filmes  </li> </a>
+                    <a href="./"><li>Séries</li></a>
+                    
+                </ul>
+                
+                <button>
+                    <i class="fas fa-times"></i>
+                    <i class="fas fa-bars"></i>
+                </button>
+            </section>
+        </header>
+
+
+        
+
+        <section class="main">
+
+
+            <div class="texto">
+                
+                <section class="conteudo">
+
+                    <article>
+                        
+                        <img src="../images/DALL·E 2023-08-22 20.38.02 - códigos de programação background azul metálico.png" alt="">
+                        
+                        <h2>Bem Vindo ao Multivero News</h2>
+                        <p>
+                            Bem-vindo ao Multiverso News - o seu portal definitivo para todas as 
+                            novidades e informações do mundo geek e da cultura pop!
+                            Aqui, mergulhamos fundo nos reinos da fantasia, tecnologia, entretenimento e muito
+                            mais, trazendo até você as notícias mais recentes e empolgantes do multiverso geek.
+                            <br>
+                            No Multiverso News, a paixão pela cultura geek encontra um lar digital. 
+                            Se você é um fã ávido de filmes, um devorador de séries, um aficionado por jogos 
+                            ou um entusiasta da última tecnologia, este é o lugar onde todas essas paixões 
+                            convergem. Nossa equipe dedicada de redatores apaixonados e especialistas está 
+                            empenhada em trazer a você conteúdo de qualidade, análises perspicazes e informações 
+                            exclusivas que você não encontrará em nenhum outro lugar.
+                        </p>
+                        <a href="noticias/noticia-em-destaque.html">Leia mais</a>
+                    </article>
+                </section>
+
+                <section class="recent-posts">
+                    <h2>Bem Vindo ao Multivero News</h2>
+                    <article>
+                        <h3>Título da Notícia Recente 1</h3>
+                        <p>Descrição breve da notícia recente 1.</p>
+                        <a href="noticias/noticia-recente-1.html">Leia mais</a>
+                    </article>
+                    <article>
+                        <h3>Título da Notícia Recente 2</h3>
+                        <p>Descrição breve da notícia recente 2.</p>
+                        <a href="noticias/noticia-recente-2.html">Leia mais</a>
+                    </article>
+                </section>
+                
+            </div>
             
-            <button>
-                <i class="fas fa-times"></i>
-                <i class="fas fa-bars"></i>
-            </button>
+            
+            
+            
+            
+            
         </section>
-    </header>
 
+        <script>
+            var menu = document.querySelector('.menu');
+            var menuBtn = document.querySelector('.menu button');
+            menuBtn.addEventListener('click', () => {
+                menu.classList.toggle('opened')
+            })
+        </script>
 
-    
-
-    <section class="main">
-
-        <div class="texto">
-            <p>
-                <h2>Bem Vindo ao Multivero News</h2>
-    
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis possimus minima ear
-                um quos magnam natus sed
-                quia minus aspernatur sapiente voluptatibus voluptates voluptas tempora consectetur 
-                sit exercitationem obcaecati, voluptatem odio?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis possimus minima ear
-                um quos magnam natus sed
-                quia minus aspernatur sapiente voluptatibus voluptates voluptas tempora consectetur 
-                sit exercitationem obcaecati, voluptatem odio?
-    
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis possimus minima ear
-                um quos magnam natus sed
-                quia minus aspernatur sapiente voluptatibus voluptates voluptas tempora consectetur 
-                sit exercitationem obcaecati, voluptatem odio?
-    
-    
-    
-    
-            </p>
-        </div>
-        
-          
-          
-        
-    </section>
-
-    <script>
-        var menu = document.querySelector('.menu');
-        var menuBtn = document.querySelector('.menu button');
-        menuBtn.addEventListener('click', () => {
-            menu.classList.toggle('opened')
-        })
-    </script>
-
-    <footer>
-        <p>&copy; 2023 Multiverso News. Todos os direitos reservados.</p>
-    </footer>
-</body>
+        <footer>
+            <p>&copy; 2023 Multiverso News. Todos os direitos reservados.</p>
+        </footer>
+    </body>
 </html>

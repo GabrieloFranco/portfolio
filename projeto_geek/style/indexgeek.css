@@ -70,6 +70,7 @@ header h1 {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    background-color: #eb83bf;
 }
 
 img {
@@ -125,8 +126,17 @@ footer > p{
     
     text-align: center;
 }
-.texto, h1{
+.texto {
+    width: 100vh;
+    height: 600px;
+    
+    text-align: justify;
+    
     background-color: #8b9e91;
+}
+.texto img{
+    width: 320px;
+    height: 120px;
 }
 
 /*  -----    RESPONSIVENESS    -----  */

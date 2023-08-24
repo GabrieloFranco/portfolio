@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio Gabriel Franco">
+    <meta name="keywords" content="Portfólio, Dev, Estudante de Análise e Desenvolvimento de Sistemas">
+    <meta name="author" content="Gabriel Franco">
+    <link rel="shortcut icon" href="./images/logo.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./style/projetos.css">
+</head>
+<body>
+    <header>
+        <h1>Gabriel Franco</h1>
+
+        <section class="menu">
+            <ul class="menu-list">
+                <a href="./index.html" > <li>Home </li> </a>
+                <a href="./projetos.html" > <li class="active">Projetos  </li> </a>
+                <a href="./contatos.html"><li>Contatos</li></a>
+                  
+            </ul>
+            
+            <button>
+                <i class="fas fa-times"></i>
+                <i class="fas fa-bars"></i>
+            </button>
+        </section>
+    </header>
+
+
+    
+
+    <section class="main">
+        <div>
+            <a href="./projeto_geek/indexgeek.html"><img src="./images/code mobile.png" alt=".">
+                
+            </a>
+            <p>Multiveros News</p>
+          </div>
+          <div>
+            <img src="./images/code mobile.png">
+            <p>Em breve</p>
+          </div>
+          <div>
+            <img src="./images/code mobile.png">
+            <p>Em breve</p>
+          </div>
+          
+          
+        
+    </section>
+
+    <script>
+        var menu = document.querySelector('.menu');
+        var menuBtn = document.querySelector('.menu button');
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('opened')
+        })
+    </script>
+</body>
+</html>

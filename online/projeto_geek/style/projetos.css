@@ -1,0 +1,261 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+a { color: inherit; } 
+
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #282a36;
+    color: #57c576;
+    position: fixed;
+    top: 0;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 64px;
+    font-size: 16px;
+    position: relative;
+}
+
+header h1 {
+    text-transform: uppercase;
+    font-size: 1.7em;
+    letter-spacing: 1px;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu button {
+    display: none;
+}
+
+.menu-list {
+    list-style: none;
+    display: flex;
+}
+
+.menu-list li {
+    display: inline-block;
+    margin-left: 32px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.menu-list li.active,
+.menu-list li:hover {
+    color: #eb83bf;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.right img {
+    width: 85%;
+}
+
+.title {
+    color: #eb83bf;
+    font-size: 3.2em;
+    width: 50%;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 48px;
+}
+
+.msg {
+    color: #57c576;
+    font-size: 1.3em;
+    letter-spacing: 0.7px;
+    line-height: 32px;
+    margin-bottom: 48px;
+}
+
+button.cta {
+    border: none;
+    outline: none;
+    background-color: #282a36;
+    color: #57c576;
+    padding: 18px 32px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1),
+    0 15px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: opacity 0.9;
+}
+
+button.cta:hover {
+    opacity: 0.9;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+  }
+  
+.main > div {
+    flex: 1 1 250px;
+    margin: 20px;
+    position: relative;
+  }
+
+div > p {
+    text-align: center;
+    position: absolute; /* Adicione esta linha */
+    bottom: 10px; /* Ajuste conforme necessário */
+    width: 100%; /* Para ocupar todo o espaço da div */
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.3s ease-in-out; /* Transição suave para a opacidade */
+   
+}
+div:hover p {
+    opacity: 1; /* Torna visível ao passar o mouse */
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+img:hover{
+    transform: scale(1.05);
+}
+
+
+
+/*  -----    RESPONSIVENESS    -----  */
+
+@media (max-width:800px) {
+    header,
+    .left,
+    .right {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .main {
+        flex-direction: column;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+        max-width: 100%;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left {
+        font-size: 0.8em;
+    }
+
+    .left * {
+        width: 95%;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    button.cta {
+        max-width: 60%;
+    }
+
+    .right img {
+        width: 110%;
+    }
+
+    /* Nav Menu Responsiveness */
+
+    .menu button {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: transparent;
+        color:  #57c576;
+        outline: none;
+        font-size: 1.7em;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .menu i.fa-times,
+    .menu.opened i.fa-bars {
+        display: none;
+    }
+
+    .menu.opened i.fa-times,
+    .menu i.fa-bars {
+        display: block;
+        animation: enter 0.8s;
+    }
+
+    @keyframes enter {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .menu-list {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 100%;
+        background-color:  #282a36;
+        color: #57c576;
+        padding: 46px;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-top: 80px;
+        transform: translateX(100%);
+        transition: transform 0.8s;
+    }
+
+    .menu-list li {
+        font-size: 1.7em;
+        margin: 32px 0px;
+    }
+
+    .menu.opened .menu-list {
+        transform: translateX(0);
+    }
+
+    .menu.opened button {
+        color: #57c576;
+    }
+}

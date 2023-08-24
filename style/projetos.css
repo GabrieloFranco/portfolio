@@ -132,7 +132,7 @@ div > p {
     width: 100%; /* Para ocupar todo o espaço da div */
     opacity: 0; /* Começa invisível */
     transition: opacity 0.3s ease-in-out; /* Transição suave para a opacidade */
-   
+    color: #ffffff;
 }
 div:hover p {
     opacity: 1; /* Torna visível ao passar o mouse */

@@ -1,73 +1,771 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio Gabriel Franco">
-    <meta name="keywords" content="Portfólio, Dev, Estudante de Análise e Desenvolvimento de Sistemas">
-    <meta name="author" content="Gabriel Franco">
-    <link rel="shortcut icon" href="./images/logo.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio de Gabriel Franco, Engenheiro de Dados com experiência em SQL, Python, PySpark, Databricks, Delta Lake, pipelines de dados e automações." />
+  <meta name="author" content="Gabriel Franco" />
+  <title>Gabriel Franco | Data Engineer</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" 
-    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="./style/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <title>Gabriel Franco</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #11182d;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #f8fafc;
+      --muted: #a8b3cf;
+      --accent: #38bdf8;
+      --accent-2: #818cf8;
+      --success: #22c55e;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 22px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(129, 140, 248, 0.18), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(11, 16, 32, 0.76);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.08rem;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-weight: 700;
+      font-size: 0.94rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.32);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #08111f;
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 88px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #bae6fd;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.12);
+    }
+
+    h1 {
+      font-size: clamp(2.45rem, 6vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.08em;
+      margin-bottom: 22px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #f8fafc, #bae6fd 42%, #c7d2fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 720px;
+      font-size: clamp(1rem, 2vw, 1.22rem);
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .quick-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .quick-info li {
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+    }
+
+    .profile-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.04));
+      border: 1px solid var(--card-border);
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .profile-card::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.4), transparent, rgba(129, 140, 248, 0.35));
+      z-index: -1;
+      opacity: 0.5;
+    }
+
+    .profile-avatar {
+      width: 86px;
+      height: 86px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #08111f;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .profile-card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .metric {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.4rem;
+      letter-spacing: -0.04em;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    section {
+      padding: 56px 0;
+    }
+
+    .section-title {
+      max-width: 740px;
+      margin-bottom: 26px;
+    }
+
+    .section-title span {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.06em;
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .card ul {
+      padding-left: 18px;
+      margin-top: 12px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      display: inline-flex;
+      padding: 9px 12px;
+      border-radius: 999px;
+      color: #dbeafe;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 22px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .timeline-date {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .timeline-content h3 {
+      font-size: 1.16rem;
+      margin-bottom: 6px;
+    }
+
+    .timeline-content .company {
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .timeline-content ul {
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      color: #c7d2fe;
+      background: rgba(129, 140, 248, 0.11);
+      border: 1px solid rgba(129, 140, 248, 0.18);
+      border-radius: 999px;
+      padding: 6px 9px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.14), rgba(129, 140, 248, 0.12));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 32px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-top: 8px;
+      max-width: 680px;
+    }
+
+    footer {
+      padding: 34px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .cards,
+      .project-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>Gabriel Franco</h1>
+  <header>
+    <nav class="container" aria-label="Navegação principal">
+      <a class="logo" href="#top">Gabriel<span>Franco</span></a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <section class="menu">
-            <ul class="menu-list">
-                
-                <a href="./index.html" > <li class="active">Home </li> </a>
-                <a href="./projetos.html" > <li>Projetos  </li> </a>
-                <a href="./contatos.html"><li>Contatos</li></a>
-                
-                
-            </ul>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Disponível para oportunidades em Engenharia de Dados</div>
+          <h1><span class="gradient-text">Data Engineer</span><br />focado em dados, cloud e automação.</h1>
+          <p class="lead">
+            Sou Gabriel Franco, Engenheiro de Dados com experiência em SQL, Python, PySpark,
+            Databricks, Delta Lake e pipelines de dados em ambiente corporativo. Trabalho com
+            transformação, organização, sustentação e melhoria de processos de dados.
+          </p>
 
-            <button>
-                <i class="fas fa-times"></i>
-                <i class="fas fa-bars"></i>
-            </button>
-        </section>
-    </header>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:ds.gabrielfranco@gmail.com">Entrar em contato</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/gabrielofranco" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn btn-secondary" href="https://github.com/GabrieloFranco" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
 
-    <section class="main">
+          <ul class="quick-info" aria-label="Informações rápidas">
+            <li>São Paulo, Brasil</li>
+            <li>SQL · Python · PySpark</li>
+            <li>Databricks · Delta Lake</li>
+            <li>Git · CI/CD · Documentação técnica</li>
+          </ul>
+        </div>
 
-        <section class="left">
-            <p class="title">Database Student</p>
-            <p class="msg">Welcome to the space where everything is starting, feel free to know a little about me and my projects.</p>
-            <a href="./programia/programia.html"><button class="cta">Baixar currículo</button></a>
-        </section>
+        <aside class="profile-card" aria-label="Resumo profissional">
+          <div class="profile-avatar">GF</div>
+          <h2>Engenharia de Dados com visão de negócio</h2>
+          <p>
+            Experiência em pipelines, regras de negócio, automações, documentação técnica e apoio a áreas internas.
+          </p>
 
-        <section class="right">
-            <img src="./images/profile-pic (2).png" alt="Langing image">
-        </section>
-
+          <div class="metric-grid">
+            <div class="metric">
+              <strong>SQL</strong>
+              <span>Regras e transformação</span>
+            </div>
+            <div class="metric">
+              <strong>PySpark</strong>
+              <span>Processamento distribuído</span>
+            </div>
+            <div class="metric">
+              <strong>Cloud</strong>
+              <span>Databricks Lakehouse</span>
+            </div>
+            <div class="metric">
+              <strong>Python</strong>
+              <span>Automação de processos</span>
+            </div>
+          </div>
+        </aside>
+      </div>
     </section>
 
-    <script>
-        var menu = document.querySelector('.menu');
-        var menuBtn = document.querySelector('.menu button');
-        menuBtn.addEventListener('click', () => {
-            menu.classList.toggle('opened')
-        })
-    </script>
+    <section id="sobre">
+      <div class="container">
+        <div class="section-title">
+          <span>Sobre</span>
+          <h2>Transformo dados em processos confiáveis, organizados e escaláveis.</h2>
+          <p>
+            Tenho experiência em Engenharia de Dados e Análise de Dados, com atuação em SQL, Python,
+            PySpark, Databricks, Delta Lake e Power BI. Meu foco atual é desenvolver e manter pipelines,
+            melhorar processos de dados, apoiar validações e documentar soluções técnicas com clareza.
+          </p>
+        </div>
 
+        <div class="cards">
+          <article class="card">
+            <h3>Engenharia de Dados</h3>
+            <p>
+              Desenvolvimento e manutenção de pipelines, transformação de dados, ETL/ELT,
+              organização de camadas e aplicação de regras de negócio.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Cloud & Lakehouse</h3>
+            <p>
+              Atuação com Databricks, Delta Lake e processamento de dados em ambientes modernos,
+              com foco em performance, organização e disponibilidade.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Automação & Qualidade</h3>
+            <p>
+              Uso de Python, SQL e boas práticas de desenvolvimento para reduzir tarefas manuais,
+              melhorar confiabilidade e facilitar sustentação.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <span>Skills</span>
+          <h2>Stack principal</h2>
+          <p>Ferramentas e tecnologias que fazem parte do meu dia a dia e dos meus estudos em Engenharia de Dados.</p>
+        </div>
+
+        <div class="skills">
+          <span class="skill">SQL</span>
+          <span class="skill">Python</span>
+          <span class="skill">PySpark</span>
+          <span class="skill">Pandas</span>
+          <span class="skill">Databricks</span>
+          <span class="skill">Delta Lake</span>
+          <span class="skill">ETL/ELT</span>
+          <span class="skill">Data Pipelines</span>
+          <span class="skill">Git</span>
+          <span class="skill">GitHub</span>
+          <span class="skill">CI/CD</span>
+          <span class="skill">Jira</span>
+          <span class="skill">Confluence</span>
+          <span class="skill">Power BI</span>
+          <span class="skill">Data Quality</span>
+          <span class="skill">Documentação Técnica</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <div class="container">
+        <div class="section-title">
+          <span>Experiência</span>
+          <h2>Experiência profissional</h2>
+          <p>Atuação em dados com foco em engenharia, automação, transformação e sustentação de processos.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">Out/2024 — Atual</div>
+            <div class="timeline-content">
+              <h3>Data Engineer</h3>
+              <p class="company">BRQ Digital Solutions</p>
+              <ul>
+                <li>Desenvolvimento e manutenção de pipelines de dados em PySpark no Databricks.</li>
+                <li>Criação e manutenção de regras de negócio em SQL para tratamento e transformação de dados.</li>
+                <li>Apoio na modernização de processos de dados entre ambientes tradicionais e cloud.</li>
+                <li>Utilização de Delta Lake para organização e processamento de dados.</li>
+                <li>Desenvolvimento de automações em Python para apoio a processos internos.</li>
+                <li>Documentação técnica de processos, regras e procedimentos.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">Out/2023 — Out/2024</div>
+            <div class="timeline-content">
+              <h3>Data Analyst Intern</h3>
+              <p class="company">Santander Brasil</p>
+              <ul>
+                <li>Consulta, tratamento e cruzamento de dados em Databricks utilizando SQL e PySpark.</li>
+                <li>Desenvolvimento de automações em Python para tratamento e preparação de dados.</li>
+                <li>Construção de dashboards em Power BI para acompanhamento de indicadores de negócio.</li>
+                <li>Padronização, limpeza e normalização de bases para consumo em relatórios gerenciais.</li>
+                <li>Apoio a áreas internas em análises de dados, relatórios e estudos gerenciais.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="container">
+        <div class="section-title">
+          <span>Projetos</span>
+          <h2>Projetos e temas em destaque</h2>
+          <p>Projetos que representam minha atuação e minha evolução em Engenharia de Dados.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="card project-card">
+            <div>
+              <h3>Pipeline de Engenharia de Dados em Databricks</h3>
+              <p>
+                Desenvolvimento e manutenção de pipelines com foco em tratamento, transformação,
+                padronização e disponibilização de dados para consumo por áreas internas.
+              </p>
+              <div class="tag-list">
+                <span class="tag">PySpark</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Databricks</span>
+                <span class="tag">Delta Lake</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div>
+              <h3>Modernização e Manutenção de Processos</h3>
+              <p>
+                Apoio em melhorias, refatorações, versionamento, documentação técnica e evolução de
+                processos para facilitar sustentação e confiabilidade das entregas.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Python</span>
+                <span class="tag">Git</span>
+                <span class="tag">CI/CD</span>
+                <span class="tag">Confluence</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div>
+              <h3>Processamento Distribuído com PySpark</h3>
+              <p>
+                Rotinas de processamento distribuído com transformação de dados, aplicação de regras,
+                cruzamento de bases e organização dos dados em camadas.
+              </p>
+              <div class="tag-list">
+                <span class="tag">PySpark</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Python</span>
+                <span class="tag">Lakehouse</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacao">
+      <div class="container">
+        <div class="section-title">
+          <span>Formação</span>
+          <h2>Formação e certificações</h2>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <h3>FIAP</h3>
+            <p>Tecnólogo em Data Science — formação com foco em Python, SQL, estatística, machine learning, análise de dados e pipelines.</p>
+          </article>
+          <article class="card">
+            <h3>Databricks</h3>
+            <p>Academy Accreditation — Databricks Fundamentals.</p>
+          </article>
+          <article class="card">
+            <h3>Data Engineering</h3>
+            <p>Academy Accreditation — Get Started with Databricks for Data Engineering.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2>Vamos conversar?</h2>
+            <p>
+              Estou aberto a oportunidades em Engenharia de Dados, com foco em SQL, Python,
+              PySpark, Databricks, Delta Lake, pipelines e automação de processos.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:ds.gabrielfranco@gmail.com">E-mail</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/gabrielofranco" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Gabriel Franco · Data Engineer · São Paulo, SP</p>
+    </div>
+  </footer>
 </body>
 </html>
-
-
-
-

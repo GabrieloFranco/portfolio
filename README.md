@@ -19,8 +19,13 @@ This site presents Gabriel's current professional profile, core stack, experienc
 - Core stack
 - Professional experience
 - Portfolio roadmap
+- Resume view/download
 - Contact
 
 ## Deploy
 
 This repository can be published with GitHub Pages from the root of the default branch.
+
+## Continuation
+
+See `HANDOFF.md` for project context, deployment details, contact links, and next steps.

@@ -99,9 +99,24 @@ Current English web resume:
 assets/resume/gabriel-franco-data-engineer-resume-en.html
 ```
 
+Current English PDF resume:
+
+```text
+assets/resume/gabriel-franco-data-engineer-resume-en.pdf
+```
+
+The EN PDF is generated from the EN HTML resume with Chrome headless. Chrome is installed on this machine but is not available as a simple `chrome` command in PATH.
+
+Regenerate EN PDF:
+
+```powershell
+& "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --disable-gpu --print-to-pdf="C:\Users\gabri\OneDrive\Documentos\2026_codex\p\assets\resume\gabriel-franco-data-engineer-resume-en.pdf" "file:///C:/Users/gabri/OneDrive/Documentos/2026_codex/p/assets/resume/gabriel-franco-data-engineer-resume-en.html"
+```
+
 The portfolio section currently links to:
 
 - EN resume: HTML page, intended for international recruiters and future PDF export.
+- EN download: generated PDF file.
 - PT-BR resume: PDF file from the user's current resume.
 - PT-BR download: same PDF with the `download` attribute.
 
@@ -145,9 +160,25 @@ In this environment, if Git reports a safe-directory issue, use:
 git -c safe.directory="C:/Users/gabri/OneDrive/Documentos/2026_codex/p" status
 ```
 
+## Handoff Policy
+
+For every repository we create, edit, or publish from now on, keep a `HANDOFF.md` file updated.
+
+The handoff should include:
+
+- Project purpose and current status.
+- Main files and folder structure.
+- Local setup and run commands.
+- Deploy/publish instructions.
+- Important links, credentials policy, and environment variables without secrets.
+- Known issues, decisions made, and next steps.
+- What changed in the latest meaningful work session.
+
+When changing a project, update `HANDOFF.md` in the same commit whenever the change affects setup, deploy, structure, links, roadmap, or continuation context.
+
 ## Next Improvements
 
-- Export the English HTML resume to PDF and add a download link for EN-US.
+- Improve the English resume bullets for international applications.
 - Add the real `simu_app` repository link once it is ready to be public.
 - Improve visual validation in a normal browser after each UI change.
 - Add screenshots or a simple Open Graph image later.

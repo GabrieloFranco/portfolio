@@ -22,14 +22,14 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.45;
+      line-height: 1.42;
     }
 
     main {
-      width: min(100% - 32px, 880px);
+      width: min(100% - 32px, 900px);
       margin: 28px auto;
       background: #fff;
-      padding: 42px;
+      padding: 40px;
       border: 1px solid var(--line);
     }
 
@@ -42,17 +42,17 @@
 
     h1 {
       font-size: 2rem;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     h2 {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       letter-spacing: 0.08em;
       color: var(--accent);
       text-transform: uppercase;
       border-bottom: 1px solid var(--line);
       padding-bottom: 6px;
-      margin: 24px 0 12px;
+      margin: 22px 0 10px;
     }
 
     h3 {
@@ -66,24 +66,30 @@
     }
 
     ul {
-      margin: 8px 0 0;
+      margin: 7px 0 0;
       padding-left: 20px;
     }
 
     li {
-      margin-bottom: 6px;
+      margin-bottom: 5px;
+    }
+
+    .headline {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
     .contact,
     .meta {
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
     }
 
     .top-actions {
       display: flex;
       justify-content: flex-end;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .download {
@@ -99,12 +105,12 @@
     }
 
     .summary {
-      margin-top: 18px;
+      margin-top: 16px;
       color: #303b42;
     }
 
     .role {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .role-head {
@@ -117,8 +123,8 @@
     .skills {
       display: grid;
       grid-template-columns: 150px 1fr;
-      gap: 8px 18px;
-      font-size: 0.96rem;
+      gap: 7px 18px;
+      font-size: 0.95rem;
     }
 
     .skills strong {
@@ -150,87 +156,95 @@
     </div>
 
     <h1>Gabriel Franco Josino da Silva</h1>
+    <p class="headline">Data Engineer | PySpark | SQL | Databricks | Delta Lake | Python | Financial Data Pipelines</p>
     <p class="contact">
-      Sao Paulo, Brazil · +55 11 95881-4398 ·
-      <a href="mailto:ds.gabrielfranco@gmail.com">ds.gabrielfranco@gmail.com</a> ·
-      <a href="https://www.linkedin.com/in/gabrielofranco">LinkedIn</a> ·
-      <a href="https://github.com/GabrieloFranco">GitHub</a> ·
+      Sao Paulo, Brazil | Open to full remote data engineering roles<br />
+      +55 11 95881-4398 |
+      <a href="mailto:ds.gabrielfranco@gmail.com">ds.gabrielfranco@gmail.com</a> |
+      <a href="https://www.linkedin.com/in/gabrielofranco">LinkedIn</a> |
+      <a href="https://github.com/GabrieloFranco">GitHub</a> |
       <a href="https://gabrielofranco.github.io/portfolio/">Portfolio</a>
     </p>
 
     <p class="summary">
-      Data Engineer with experience in SQL, Python, PySpark, Databricks, Delta Lake,
-      data pipelines, automation, and technical documentation. Hands-on background in
-      corporate banking environments, focusing on data treatment, transformation,
-      validation, financial business rules, and reliable data delivery for internal teams.
+      Data Engineer with hands-on experience in banking data environments, working with
+      SQL, PySpark, Databricks, Delta Lake, Python automation, batch job monitoring, and
+      business-facing data delivery. Experienced in translating financial business rules
+      into maintainable data transformations, supporting data modernization from traditional
+      environments to cloud platforms, and documenting processes for reliable support.
+      Currently expanding skills in Airflow, GitHub Actions, CI/CD, and cloud data engineering
+      to grow into stronger full remote and international data engineering roles.
     </p>
 
-    <h2>Skills</h2>
+    <h2>Core Skills</h2>
     <div class="skills">
       <strong>Languages</strong>
-      <span>Python, SQL, PySpark</span>
-      <strong>Data stack</strong>
-      <span>Databricks, Delta Lake, Oracle/Exadata, Power BI</span>
+      <span>SQL, Python, PySpark</span>
+      <strong>Data platforms</strong>
+      <span>Azure Databricks, Delta Lake, Oracle/Exadata, Power BI</span>
       <strong>Operations</strong>
-      <span>Control-M, Git, GitHub, CI/CD basics, Jira, Confluence</span>
-      <strong>Focus areas</strong>
-      <span>Batch pipelines, data validation, financial parameterization, documentation, automation</span>
+      <span>Control-M monitoring, Git, GitHub, CI/CD fundamentals, Jira, Confluence</span>
+      <strong>Data engineering</strong>
+      <span>Batch pipelines, ETL/ELT, data validation, financial parameterization, documentation, automation</span>
+      <strong>Learning focus</strong>
+      <span>Airflow, GitHub Actions, Azure Databricks certification path, Spark performance</span>
     </div>
 
     <h2>Professional Experience</h2>
     <section class="role">
       <div class="role-head">
-        <h3>Data Engineer · BRQ Digital Solutions</h3>
-        <span class="meta">Oct 2024 - Present · Sao Paulo, Brazil · Hybrid</span>
+        <h3>Data Engineer - BRQ Digital Solutions</h3>
+        <span class="meta">Oct 2024 - Present | Sao Paulo, Brazil | Hybrid</span>
       </div>
-      <p class="meta">Allocated to F1rst/Santander · Financial MIS · BackOffice Squad</p>
+      <p class="meta">Allocated to F1rst/Santander | Financial MIS | BackOffice Squad</p>
       <ul>
-        <li>Develop and maintain data pipelines with PySpark on Databricks.</li>
-        <li>Create and maintain SQL business rules for data treatment, transformation, and validation.</li>
-        <li>Support data modernization initiatives between traditional environments and cloud platforms.</li>
-        <li>Use Delta Lake to organize and process data in a Lakehouse architecture.</li>
-        <li>Build Python automations to support internal processes and reduce manual work.</li>
-        <li>Work with Git/GitHub, technical documentation, and maintainability practices.</li>
-        <li>Interact with business stakeholders, POs, and backoffice teams to define and validate rules.</li>
+        <li>Develop and maintain PySpark data pipelines in Databricks for financial data processing and internal business consumption.</li>
+        <li>Create and maintain SQL business rules for fixed-income products, including data treatment, transformation, validation, and parameterization.</li>
+        <li>Support modernization of data processes between on-premise environments and cloud lakehouse platforms using Databricks and Delta Lake.</li>
+        <li>Work with Oracle/Exadata integrations and maintain data processing routines connected to financial calculation drivers.</li>
+        <li>Monitor and troubleshoot batch jobs with Control-M, including job status tracking, log analysis, and operational support for existing workflows.</li>
+        <li>Build Python automations to support financial parameterization processes and reduce repetitive manual work.</li>
+        <li>Collaborate with POs, backoffice teams, and business stakeholders to define, validate, and document data rules.</li>
       </ul>
     </section>
 
     <section class="role">
       <div class="role-head">
-        <h3>Data Analyst Intern · Santander Brasil</h3>
-        <span class="meta">Oct 2023 - Oct 2024 · Sao Paulo, Brazil · Hybrid</span>
+        <h3>Data Analyst Intern - Santander Brasil</h3>
+        <span class="meta">Oct 2023 - Oct 2024 | Sao Paulo, Brazil | Hybrid</span>
       </div>
       <p class="meta">Insurance and Assistance Platform</p>
       <ul>
-        <li>Queried, treated, and joined data in Databricks using SQL and PySpark.</li>
-        <li>Developed Python automations for data treatment and preparation.</li>
-        <li>Built Power BI dashboards for business indicator monitoring.</li>
-        <li>Standardized, cleaned, and normalized datasets for management reporting.</li>
-        <li>Supported internal teams with data analysis, reports, and business studies.</li>
+        <li>Queried, treated, and joined datasets in Databricks using SQL and PySpark across silver and gold data layers.</li>
+        <li>Built Power BI dashboards connected to Databricks to support insurance business indicators and management reporting.</li>
+        <li>Developed Python automations for text and Excel file processing, reducing manual preparation before dashboard consumption.</li>
+        <li>Cleaned, standardized, and normalized datasets involving products, regions, payers, debtors, and credit analysis.</li>
+        <li>Supported internal analytics requests using Databricks, on-premise query environments, Jira, and Pipefy.</li>
       </ul>
     </section>
 
-    <h2>Relevant Projects</h2>
+    <h2>Selected Work</h2>
     <section class="role">
-      <h3>Databricks Data Engineering Pipeline</h3>
+      <h3>Financial Data Pipelines and Business Rules</h3>
       <p>
-        Development and maintenance of pipelines focused on data treatment, transformation,
-        standardization, and delivery for internal business consumption.
+        Development and maintenance of SQL and PySpark routines for financial data treatment,
+        parameterization, validation, and delivery to internal teams in a banking environment.
       </p>
-      <p class="meta">Technologies: SQL, PySpark, Databricks, Delta Lake, Python</p>
+      <p class="meta">Technologies: SQL, PySpark, Databricks, Delta Lake, Python, Oracle/Exadata, Control-M</p>
     </section>
     <section class="role">
-      <h3>Data Process Modernization and Maintenance</h3>
+      <h3>Certification Simulator App - Portfolio Project</h3>
       <p>
-        Adjustments, refactoring, version control, technical documentation, and process
-        improvements to increase reliability and supportability.
+        Active prototype for certification practice, built with Next.js, TypeScript, Tailwind,
+        and Supabase. The next planned step is to add analytics around attempts, weak topics,
+        learning progress, and data modeling.
       </p>
-      <p class="meta">Technologies: Python, SQL, PySpark, Databricks, Git, GitHub, CI/CD, Confluence</p>
+      <p class="meta">Technologies: TypeScript, Next.js, Supabase/PostgreSQL, product analytics roadmap</p>
     </section>
 
     <h2>Education</h2>
     <p>
-      <strong>FIAP</strong> · Technologist Degree in Data Science · Feb 2023 - Dec 2024<br />
+      <strong>FIAP</strong> | Technologist Degree in Data Science | Feb 2023 - Dec 2024<br />
       Practical education focused on Python, SQL, statistics, machine learning, data analysis,
       modeling, and pipelines.
     </p>
@@ -240,12 +254,14 @@
       <li>Databricks Academy Accreditation - Get Started with Databricks for Data Engineering</li>
       <li>Databricks Academy Accreditation - Databricks Fundamentals</li>
       <li>PCP Federado - Low Platform - F1rst</li>
+      <li>In progress: Databricks Certified Data Engineer Associate study path</li>
+      <li>Planned: GitHub Actions, Microsoft Azure Databricks Data Engineer Associate, Airflow Fundamentals</li>
     </ul>
 
     <h2>Languages</h2>
     <ul>
       <li>Portuguese: Native</li>
-      <li>English: Intermediate</li>
+      <li>English: Intermediate, actively improving for remote and international data engineering work</li>
     </ul>
   </main>
 </body>

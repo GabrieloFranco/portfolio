@@ -21,6 +21,8 @@ Current important files:
 - `assets/resume/gabriel-franco-data-engineer-resume-en.pdf`: generated English resume PDF.
 - `assets/resume/gabriel-franco-data-engineer-resume-pt-br.html`: editable Portuguese resume.
 - `assets/resume/gabriel-franco-data-engineer-resume-pt-br.pdf`: generated Portuguese resume PDF.
+- `career-materials/linkedin-positioning.md`: LinkedIn headline, About, experience bullets, Featured suggestions, and recruiter message templates.
+- `career-materials/remote-data-engineer-roadmap.md`: certification, projects, English, GitHub workflow, and remote job roadmap.
 
 The previous repository contained duplicated folders, old pages, large generated images, and executable files. Those were removed intentionally.
 
@@ -57,6 +59,7 @@ Current positioning:
 - SQL, PySpark, Databricks, Delta Lake, Python, Control-M.
 - Banking data, fixed-income rules, batch orchestration, Oracle Exadata, Delta Lake.
 - Open to remote data engineering opportunities.
+- Career target: full remote Data Engineer roles, preferably international, growing toward mid-level readiness.
 
 Avoid making the site look like a student landing page or a generic full-stack portfolio.
 
@@ -189,11 +192,26 @@ The handoff should include:
 
 When changing a project, update `HANDOFF.md` in the same commit whenever the change affects setup, deploy, structure, links, roadmap, or continuation context.
 
+## GitHub Workflow Policy
+
+Going forward, meaningful changes should preferably use a professional GitHub workflow:
+
+1. Create an issue.
+2. Create a branch.
+3. Commit to the branch.
+4. Open a pull request.
+5. Include what changed, why, and how to test.
+6. Merge the PR.
+7. Close the issue.
+
+Small emergency fixes can still be committed directly, but portfolio/project work should use issues and PRs to build visible evidence of collaboration-ready habits.
+
 ## Next Improvements
 
-- Improve the English resume bullets for international applications.
 - Keep both HTML resumes and generated PDFs in sync.
 - Add the real `simu_app` repository link once it is ready to be public.
+- Update LinkedIn using `career-materials/linkedin-positioning.md`.
+- Follow the certification/project roadmap in `career-materials/remote-data-engineer-roadmap.md`.
 - Improve visual validation in a normal browser after each UI change.
 - Add screenshots or a simple Open Graph image later.
 - Consider moving CSS into `styles.css` if the single-file HTML becomes hard to maintain.

@@ -17,7 +17,10 @@ Current important files:
 - `index.html`: full one-page portfolio with embedded CSS.
 - `README.md`: short repository description and deployment notes.
 - `HANDOFF.md`: this continuation guide.
-- `assets/resume/gabriel-franco-data-engineer-resume-pt-br.pdf`: downloadable/viewable resume.
+- `assets/resume/gabriel-franco-data-engineer-resume-en.html`: editable English resume.
+- `assets/resume/gabriel-franco-data-engineer-resume-en.pdf`: generated English resume PDF.
+- `assets/resume/gabriel-franco-data-engineer-resume-pt-br.html`: editable Portuguese resume.
+- `assets/resume/gabriel-franco-data-engineer-resume-pt-br.pdf`: generated Portuguese resume PDF.
 
 The previous repository contained duplicated folders, old pages, large generated images, and executable files. Those were removed intentionally.
 
@@ -87,7 +90,13 @@ https://github.com/GabrieloFranco
 
 Resume section is linked from the top navigation.
 
-Current PDF:
+Current PT-BR web resume:
+
+```text
+assets/resume/gabriel-franco-data-engineer-resume-pt-br.html
+```
+
+Current PT-BR PDF resume:
 
 ```text
 assets/resume/gabriel-franco-data-engineer-resume-pt-br.pdf
@@ -105,7 +114,7 @@ Current English PDF resume:
 assets/resume/gabriel-franco-data-engineer-resume-en.pdf
 ```
 
-The EN PDF is generated from the EN HTML resume with Chrome headless. Chrome is installed on this machine but is not available as a simple `chrome` command in PATH.
+The resume PDFs are generated from the HTML resume files with Chrome headless. Chrome is installed on this machine but is not available as a simple `chrome` command in PATH.
 
 Regenerate EN PDF:
 
@@ -113,12 +122,16 @@ Regenerate EN PDF:
 & "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --disable-gpu --print-to-pdf="C:\Users\gabri\OneDrive\Documentos\2026_codex\p\assets\resume\gabriel-franco-data-engineer-resume-en.pdf" "file:///C:/Users/gabri/OneDrive/Documentos/2026_codex/p/assets/resume/gabriel-franco-data-engineer-resume-en.html"
 ```
 
+Regenerate PT-BR PDF:
+
+```powershell
+& "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --disable-gpu --print-to-pdf="C:\Users\gabri\OneDrive\Documentos\2026_codex\p\assets\resume\gabriel-franco-data-engineer-resume-pt-br.pdf" "file:///C:/Users/gabri/OneDrive/Documentos/2026_codex/p/assets/resume/gabriel-franco-data-engineer-resume-pt-br.html"
+```
+
 The portfolio section currently links to:
 
-- EN resume: HTML page, intended for international recruiters and future PDF export.
-- EN download: generated PDF file.
-- PT-BR resume: PDF file from the user's current resume.
-- PT-BR download: same PDF with the `download` attribute.
+- EN resume: HTML page with an internal PDF download button.
+- PT-BR resume: HTML page with an internal PDF download button.
 
 If replacing resume files, keep the same filenames when possible so the site links do not break.
 
@@ -179,6 +192,7 @@ When changing a project, update `HANDOFF.md` in the same commit whenever the cha
 ## Next Improvements
 
 - Improve the English resume bullets for international applications.
+- Keep both HTML resumes and generated PDFs in sync.
 - Add the real `simu_app` repository link once it is ready to be public.
 - Improve visual validation in a normal browser after each UI change.
 - Add screenshots or a simple Open Graph image later.

@@ -93,7 +93,19 @@ Current PDF:
 assets/resume/gabriel-franco-data-engineer-resume-pt-br.pdf
 ```
 
-If replacing the resume, keep the same filename when possible so the site link does not break.
+Current English web resume:
+
+```text
+assets/resume/gabriel-franco-data-engineer-resume-en.html
+```
+
+The portfolio section currently links to:
+
+- EN resume: HTML page, intended for international recruiters and future PDF export.
+- PT-BR resume: PDF file from the user's current resume.
+- PT-BR download: same PDF with the `download` attribute.
+
+If replacing resume files, keep the same filenames when possible so the site links do not break.
 
 ## Project Section Policy
 
@@ -135,9 +147,8 @@ git -c safe.directory="C:/Users/gabri/OneDrive/Documentos/2026_codex/p" status
 
 ## Next Improvements
 
-- Add an English resume version and link both PT-BR and EN-US.
+- Export the English HTML resume to PDF and add a download link for EN-US.
 - Add the real `simu_app` repository link once it is ready to be public.
 - Improve visual validation in a normal browser after each UI change.
 - Add screenshots or a simple Open Graph image later.
 - Consider moving CSS into `styles.css` if the single-file HTML becomes hard to maintain.
-

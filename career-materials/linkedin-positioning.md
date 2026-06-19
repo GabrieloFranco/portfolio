@@ -20,7 +20,7 @@ Data Engineer | PySpark, SQL, Databricks & Delta Lake | Financial Data Pipelines
 
 Sou Engenheiro de Dados em São Paulo, com foco em SQL, PySpark, Databricks, Delta Lake, automações em Python e pipelines de dados financeiros.
 
-Atualmente trabalho na BRQ Digital Solutions, alocado na F1rst/Santander, na área de MIS Financeiro. No dia a dia, atuo com pipelines PySpark no Databricks, regras de negócio em SQL para produtos de renda fixa e trade finance, processamento com Delta Lake, integração com Oracle/Exadata, automações em Python, validação de schemas, documentação técnica e orquestração/acompanhamento de jobs batch via Control-M.
+Atualmente trabalho na BRQ Digital Solutions, alocado na F1rst/Santander, na área de MIS Financeiro. No dia a dia, atuo com pipelines PySpark no Databricks, regras de negócio em SQL para produtos de renda fixa e trade finance, processamento com Delta Lake, integração com Oracle/Exadata, automações em Python, validação de schemas, documentação técnica, validações de CI com GitHub Actions e orquestração/acompanhamento de jobs batch via Control-M.
 
 Antes disso, atuei como Data Analyst Intern no Santander Brasil, na plataforma de Seguros e Assistências, utilizando SQL, PySpark, Python, Databricks e Power BI para tratamento de dados, dashboards, automações de arquivos e apoio a demandas analíticas internas.
 
@@ -32,7 +32,7 @@ Principais competências: SQL, Python, PySpark, Spark SQL, Databricks, Delta Lak
 
 I am a Data Engineer based in Sao Paulo, Brazil, focused on SQL, PySpark, Databricks, Delta Lake, Python automation, and financial data pipelines.
 
-Currently, I work at BRQ Digital Solutions, allocated to F1rst/Santander, in the Financial MIS area. My day-to-day work involves PySpark pipelines on Databricks, SQL business rules for fixed-income products and trade finance, Delta Lake processing, Oracle/Exadata integration, Python automation, schema validation, technical documentation, and batch job orchestration/monitoring with Control-M.
+Currently, I work at BRQ Digital Solutions, allocated to F1rst/Santander, in the Financial MIS area. My day-to-day work involves PySpark pipelines on Databricks, SQL business rules for fixed-income products and trade finance, Delta Lake processing, Oracle/Exadata integration, Python automation, schema validation, technical documentation, GitHub Actions CI validation, and batch job orchestration/monitoring with Control-M.
 
 Before that, I worked as a Data Analyst Intern at Santander Brasil in the Insurance and Assistance platform, where I used SQL, PySpark, Python, Databricks, and Power BI to transform data, build dashboards, automate file processing, and support internal analytics demands.
 
@@ -54,7 +54,8 @@ Data Engineer - BRQ Digital Solutions, alocado na F1rst/Santander
 - Refatoramento e migração de queries Spark do ambiente on-premise para Azure Databricks, convertendo rotinas para Python/PySpark e mantendo compatibilidade com processos legados.
 - Manutenção e monitoramento de pipelines batch no Control-M: análise de logs, troubleshooting, criação/ajuste de jobs, dependências e FileWatchers em malhas de dados financeiros.
 - Transição dos conceitos de orquestração batch do Control-M para Apache Airflow em projeto público, incluindo DAGs, sensores, retries, dependências, logs e sinalização de sucesso.
-- Apoio a iniciativas de padronização e migração de dados financeiros com Databricks, Delta Lake, Control-M e esteiras corporativas de CI/CD com GitHub Actions.
+- Atuação com fluxo corporativo de versionamento e entrega utilizando Git, branches, pull requests, validações de CI com GitHub Actions e deploy controlado entre ambientes.
+- Apoio a iniciativas de padronização e migração de dados financeiros com Databricks, Delta Lake, Control-M e esteiras corporativas de CI/CD.
 - Integração com Oracle/Exadata e rotinas relacionadas a drivers de cálculo financeiro.
 - Documentação técnica e interação constante com POs, backoffice e áreas de negócio para definição, validação e documentação de regras.
 
@@ -72,7 +73,8 @@ Financial MIS
 - Refactor and migrate Spark queries from on-premise environments to Azure Databricks, converting routines to Python/PySpark while preserving compatibility with legacy processes.
 - Maintain and monitor batch pipelines with Control-M, including log analysis, troubleshooting, job adjustments, dependencies, and FileWatcher routines.
 - Translate batch orchestration concepts from Control-M into Apache Airflow portfolio work, including DAGs, sensors, retries, dependencies, logs, and success markers.
-- Support financial data standardization and migration initiatives using Databricks, Delta Lake, Control-M, and corporate CI/CD routines with GitHub Actions.
+- Work with corporate versioning and delivery flows using Git, branches, pull requests, GitHub Actions CI validation, and controlled deployments across environments.
+- Support financial data standardization and migration initiatives using Databricks, Delta Lake, Control-M, and corporate CI/CD routines.
 - Work with Oracle/Exadata integrations and routines connected to financial calculation drivers.
 - Collaborate with POs, backoffice teams, and business stakeholders to define, validate, and document data rules.
 
@@ -124,6 +126,8 @@ Technologies: Power BI, PySpark, SQL, Python, Azure Databricks, Jira, Pipefy.
 Atuo com Engenharia de Dados em ambiente financeiro, trabalhando com Databricks, Spark SQL, PySpark, SQL Server, parametrizações metadata-driven, validação de schemas, documentação técnica e modernização de regras legadas.
 
 Também venho participando do mapeamento técnico de regras financeiras críticas, decompondo SQLs legados, identificando fontes e campos, propondo camadas de enriquecimento mais rastreáveis e definindo estratégias de validação/paridade entre o comportamento legado e o novo desenho.
+
+Tenho vivência com Git, branches, pull requests, validações de CI com GitHub Actions e deploy controlado entre ambientes corporativos.
 ```
 
 ### English
@@ -132,6 +136,8 @@ Também venho participando do mapeamento técnico de regras financeiras crítica
 I work with Data Engineering in financial environments, using Databricks, Spark SQL, PySpark, SQL Server, metadata-driven parameterization, schema validation, technical documentation, and modernization of legacy financial rules.
 
 I have also been involved in technical mapping of critical financial rules, decomposing legacy SQL logic, identifying sources and fields, proposing more traceable enrichment layers, and defining validation/parity strategies between legacy behavior and the new design.
+
+I have practical exposure to Git, branches, pull requests, GitHub Actions CI validation, and controlled deployments across corporate environments.
 ```
 
 Keep: SQL, Python, PySpark, Azure Databricks, Delta Lake, Power BI, Git, DAX, ETL, Data Warehouse, Control-M.

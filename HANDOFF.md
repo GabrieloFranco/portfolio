@@ -187,6 +187,11 @@ Sanitized translations:
 - Internal pipeline framework instead of internal framework names.
 - Schema validation and parameterization front instead of internal front/version names.
 
+CI/CD positioning:
+
+- Gabriel has practical exposure to corporate Git delivery flows with branches, pull requests, GitHub Actions CI validation, and controlled deployments across environments.
+- Do not overstate this as advanced GitHub Actions workflow authoring unless a public project or deeper work proves it.
+
 ## Local Workflow
 
 From the local clone:

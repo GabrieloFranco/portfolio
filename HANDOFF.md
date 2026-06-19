@@ -23,6 +23,7 @@ Current important files:
 - `assets/resume/gabriel-franco-data-engineer-resume-pt-br.pdf`: generated Portuguese resume PDF.
 - `career-materials/linkedin-positioning.md`: LinkedIn headline, About, experience bullets, Featured suggestions, and recruiter message templates.
 - `career-materials/remote-data-engineer-roadmap.md`: certification, projects, English, GitHub workflow, and remote job roadmap.
+- `career-materials/skill-proof-project-guide.md`: public sanitized guide mapping skills to certifications, portfolio projects, and evidence.
 
 The previous repository contained duplicated folders, old pages, large generated images, and executable files. Those were removed intentionally.
 
@@ -56,8 +57,9 @@ The site should feel professional, calm, and credible for a Data Engineer.
 Current positioning:
 
 - Data Engineer in financial data platforms.
-- SQL, PySpark, Databricks, Delta Lake, Python, Control-M.
-- Banking data, fixed-income rules, batch orchestration, Oracle Exadata, Delta Lake.
+- SQL, Spark SQL, PySpark, Databricks, Delta Lake, Python, Apache Airflow, GitHub Actions.
+- Banking data, fixed-income rules, trade finance, config-driven/metadata-driven parameterization, batch orchestration, Oracle Exadata, Delta Lake.
+- Control-M remains in resume/experience as real production exposure, but public positioning should gradually move toward Apache Airflow as the modern orchestration skill.
 - Open to remote data engineering opportunities.
 - Career target: full remote Data Engineer roles, preferably international, growing toward mid-level readiness.
 
@@ -153,6 +155,38 @@ Roadmap/study areas:
 
 Do not describe unbuilt projects as completed portfolio projects. When a project gets real code and documentation, then update this section with the repository link and concrete technical details.
 
+## Private Context Policy
+
+Private career context and raw PDI notes are stored outside this public repository at:
+
+```text
+C:\Users\gabri\OneDrive\Documentos\2026_codex\private_career_context
+```
+
+Latest private career context:
+
+```text
+C:\Users\gabri\OneDrive\Documentos\2026_codex\private_career_context\trajetoria-dados-financeiros-2026-06-18.md
+```
+
+Do not copy that folder into this repository or publish it.
+
+Before publishing career text, sanitize it:
+
+- Remove internal system names, private links, manager names, internal library names, and internal product codes.
+- Keep market-recognized terms such as CRA, CRI, debentures, trade finance, Control-M, Databricks, Delta Lake, Oracle/Exadata, GitHub Actions, config-driven, and metadata-driven.
+- Keep Control-M as real work experience, but do not overemphasize it as Gabriel's target brand.
+- Keep Airflow as certification/project skill until Gabriel has real work experience with it.
+
+Sanitized translations:
+
+- Internal financial data platform instead of internal system names.
+- Metadata-driven parameterizations instead of internal table/control names.
+- Corporate pipeline orchestrator instead of internal scheduler names when needed.
+- Financial unit value calculation instead of proprietary demand names.
+- Internal pipeline framework instead of internal framework names.
+- Schema validation and parameterization front instead of internal front/version names.
+
 ## Local Workflow
 
 From the local clone:
@@ -209,6 +243,7 @@ Small emergency fixes can still be committed directly, but portfolio/project wor
 ## Next Improvements
 
 - Keep both HTML resumes and generated PDFs in sync.
+- Keep `career-materials/skill-proof-project-guide.md` aligned with project execution.
 - Add the real `simu_app` repository link once it is ready to be public.
 - Update LinkedIn using `career-materials/linkedin-positioning.md`.
 - Follow the certification/project roadmap in `career-materials/remote-data-engineer-roadmap.md`.

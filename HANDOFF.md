@@ -15,6 +15,7 @@ The repository was rebuilt from an old 2023 portfolio into a clean static site.
 Current important files:
 
 - `index.html`: full one-page portfolio with embedded CSS.
+- `tools.html`: browser-based Data Engineer and Editor utilities.
 - `README.md`: short repository description and deployment notes.
 - `HANDOFF.md`: this continuation guide.
 - `assets/resume/gabriel-franco-data-engineer-resume-en.html`: editable English resume.
@@ -155,6 +156,39 @@ Roadmap/study areas:
 
 Do not describe unbuilt projects as completed portfolio projects. When a project gets real code and documentation, then update this section with the repository link and concrete technical details.
 
+## Tools Page
+
+The portfolio now includes:
+
+```text
+tools.html
+```
+
+It is linked from the main navigation and hero actions.
+
+Current Data Engineer tools:
+
+- SQL formatter with dialect and keyword case controls.
+- SQL one-line converter.
+- JSON formatter, validator, and minifier.
+
+Current Editor tools:
+
+- Markdown preview and HTML export.
+- Text cleaner and one-line converter.
+- Media Link Helper for direct, authorized media file URLs.
+
+The Media Link Helper intentionally does not extract videos from YouTube, TikTok, or Instagram. The static GitHub Pages site has no backend for transcoding, platform authentication, or authorization enforcement. If this feature becomes a separate application, it must only process content the user owns or is authorized to download and must respect platform rules.
+
+Third-party browser libraries are loaded from CDNs:
+
+- Lucide icons.
+- sql-formatter.
+- marked.
+- DOMPurify.
+
+The SQL tool includes a small fallback formatter if the CDN library is unavailable. Markdown falls back to escaped plain text when `marked` is unavailable.
+
 ## Private Context Policy
 
 Private career context and raw PDI notes are stored outside this public repository at:
@@ -248,6 +282,9 @@ Small emergency fixes can still be committed directly, but portfolio/project wor
 ## Next Improvements
 
 - Keep both HTML resumes and generated PDFs in sync.
+- Split tool CSS and JavaScript into dedicated files if `tools.html` grows substantially.
+- Add CSV/JSON conversion, schema comparison, cron helper, and synthetic data generation.
+- Consider separate repositories and deployments for tools that need a backend.
 - Keep `career-materials/skill-proof-project-guide.md` aligned with project execution.
 - Add the real `simu_app` repository link once it is ready to be public.
 - Update LinkedIn using `career-materials/linkedin-positioning.md`.
@@ -255,3 +292,13 @@ Small emergency fixes can still be committed directly, but portfolio/project wor
 - Improve visual validation in a normal browser after each UI change.
 - Add screenshots or a simple Open Graph image later.
 - Consider moving CSS into `styles.css` if the single-file HTML becomes hard to maintain.
+
+## Latest Meaningful Update
+
+On 2026-06-24:
+
+- Added a `Tools` navigation item and hero link.
+- Added `tools.html` with Data Engineer Tools and Editor Tools tabs.
+- Implemented SQL, JSON, Markdown, and text utilities.
+- Added a limited Media Link Helper for direct authorized file URLs.
+- Documented backend and platform limitations for social media downloads.

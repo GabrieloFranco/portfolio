@@ -19,6 +19,7 @@ This site presents Gabriel's current professional profile, core stack, experienc
 - Core stack
 - Professional experience
 - Portfolio roadmap
+- Data Engineer and Editor browser tools
 - Resume view/download
 - Contact
 

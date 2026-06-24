@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Practical browser-based tools for SQL, JSON, Markdown, text editing, and authorized media links."
+  />
+  <meta name="author" content="Gabriel Franco" />
+  <title>Tools | Gabriel Franco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sql-formatter@15.6.9/dist/sql-formatter.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.6/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.3/dist/purify.min.js" defer></script>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --surface: #ffffff;
+      --surface-soft: #f0ece4;
+      --surface-strong: #101820;
+      --text: #162027;
+      --muted: #5f6c72;
+      --line: #d8d1c5;
+      --teal: #087f7a;
+      --teal-dark: #075f5b;
+      --amber: #b96f13;
+      --danger: #a23e48;
+      --shadow: 0 18px 48px rgba(28, 33, 36, 0.1);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 244, 238, 0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(22, 32, 39, 0.1);
+    }
+
+    nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--teal-dark);
+    }
+
+    main {
+      padding-bottom: 72px;
+    }
+
+    .intro {
+      padding: 54px 0 30px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--teal-dark);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 780px;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .intro-copy {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .privacy-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      max-width: 760px;
+      margin-top: 20px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--teal);
+      background: rgba(255, 255, 255, 0.65);
+      color: #39464d;
+      font-size: 0.9rem;
+    }
+
+    .privacy-note svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+
+    .tabs {
+      display: inline-grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4px;
+      margin: 18px 0 28px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface-soft);
+    }
+
+    .tab-button {
+      min-height: 42px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 5px;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .tab-button[aria-selected="true"] {
+      background: var(--surface-strong);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(16, 24, 32, 0.16);
+    }
+
+    .tab-panel[hidden] {
+      display: none;
+    }
+
+    .tool-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .tool {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .tool-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tool-title {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .tool-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      border-radius: 6px;
+      background: rgba(8, 127, 122, 0.1);
+      color: var(--teal-dark);
+    }
+
+    .tool-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .tool h2 {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.25;
+    }
+
+    .tool-description {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .status {
+      flex: 0 0 auto;
+      border: 1px solid rgba(8, 127, 122, 0.24);
+      border-radius: 999px;
+      padding: 5px 9px;
+      background: rgba(8, 127, 122, 0.08);
+      color: var(--teal-dark);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .status.limited {
+      border-color: rgba(185, 111, 19, 0.3);
+      background: rgba(185, 111, 19, 0.1);
+      color: #7d4a0e;
+    }
+
+    .tool-body {
+      padding: 22px;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field {
+      min-width: 0;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label,
+    .field-label {
+      display: block;
+      margin-bottom: 7px;
+      color: #344149;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    textarea,
+    input,
+    select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      outline: none;
+    }
+
+    textarea {
+      min-height: 230px;
+      resize: vertical;
+      padding: 14px;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      tab-size: 2;
+    }
+
+    input,
+    select {
+      min-height: 42px;
+      padding: 0 12px;
+    }
+
+    textarea:focus,
+    input:focus,
+    select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(8, 127, 122, 0.12);
+    }
+
+    .output,
+    .markdown-preview {
+      min-height: 230px;
+      padding: 14px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .output {
+      margin: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .markdown-preview {
+      color: #253138;
+    }
+
+    .markdown-preview > :first-child {
+      margin-top: 0;
+    }
+
+    .markdown-preview > :last-child {
+      margin-bottom: 0;
+    }
+
+    .markdown-preview h1,
+    .markdown-preview h2,
+    .markdown-preview h3,
+    .markdown-preview h4 {
+      margin: 1.1em 0 0.45em;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .markdown-preview h1 {
+      font-size: 1.7rem;
+    }
+
+    .markdown-preview h2 {
+      font-size: 1.35rem;
+    }
+
+    .markdown-preview h3 {
+      font-size: 1.1rem;
+    }
+
+    .markdown-preview p,
+    .markdown-preview ul,
+    .markdown-preview ol {
+      margin: 0.65em 0;
+    }
+
+    .markdown-preview pre,
+    .markdown-preview code {
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+    }
+
+    .markdown-preview pre {
+      overflow: auto;
+      padding: 12px;
+      border-radius: 5px;
+      background: #edf1f1;
+    }
+
+    .markdown-preview table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .markdown-preview th,
+    .markdown-preview td {
+      padding: 8px;
+      border: 1px solid var(--line);
+      text-align: left;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .button,
+    .icon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .button {
+      min-height: 40px;
+      gap: 8px;
+      padding: 0 13px;
+      font-size: 0.86rem;
+    }
+
+    .button.primary {
+      border-color: var(--surface-strong);
+      background: var(--surface-strong);
+      color: #fff;
+    }
+
+    .button svg,
+    .icon-button svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .button:hover,
+    .icon-button:hover {
+      border-color: rgba(8, 127, 122, 0.5);
+    }
+
+    .button:disabled {
+      cursor: not-allowed;
+      opacity: 0.48;
+    }
+
+    .icon-button {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+    }
+
+    .message {
+      min-height: 22px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .message.error {
+      color: var(--danger);
+    }
+
+    .message.success {
+      color: var(--teal-dark);
+    }
+
+    .option-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .checkbox-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-bottom: 14px;
+    }
+
+    .checkbox {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      color: var(--text);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .checkbox input {
+      width: 16px;
+      min-height: 16px;
+      accent-color: var(--teal);
+    }
+
+    .platform-result {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      margin-top: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface-soft);
+    }
+
+    .platform-result strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .platform-result p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    footer {
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links .optional {
+        display: none;
+      }
+
+      .intro {
+        padding-top: 38px;
+      }
+
+      .tabs {
+        display: grid;
+        width: 100%;
+      }
+
+      .workspace,
+      .option-row {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-head,
+      .platform-result {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-head {
+        display: grid;
+      }
+
+      .status {
+        width: fit-content;
+      }
+
+      textarea,
+      .output,
+      .markdown-preview {
+        min-height: 190px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="index.html">Gabriel Franco</a>
+      <div class="nav-links">
+        <a class="optional" href="index.html#projects">Projects</a>
+        <a href="tools.html" aria-current="page">Tools</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="container">
+        <p class="eyebrow">Useful browser utilities</p>
+        <h1>Data & Editor Tools</h1>
+        <p class="intro-copy">
+          Small utilities for recurring technical and content tasks. Processing happens in
+          your browser whenever possible, so text entered here is not sent to this portfolio.
+        </p>
+        <div class="privacy-note">
+          <i data-lucide="shield-check" aria-hidden="true"></i>
+          <span>Do not paste credentials, production data, confidential SQL, tokens, or private company information.</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="tabs" role="tablist" aria-label="Tool categories">
+        <button
+          class="tab-button"
+          id="data-tools-tab"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="data-tools"
+          data-tab="data-tools"
+        >
+          Data Engineer Tools
+        </button>
+        <button
+          class="tab-button"
+          id="editor-tools-tab"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="editor-tools"
+          data-tab="editor-tools"
+        >
+          Editor Tools
+        </button>
+      </div>
+
+      <section class="tab-panel" id="data-tools" role="tabpanel" aria-labelledby="data-tools-tab">
+        <div class="tool-list">
+          <article class="tool">
+            <div class="tool-head">
+              <div class="tool-title">
+                <span class="tool-icon"><i data-lucide="database" aria-hidden="true"></i></span>
+                <div>
+                  <h2>SQL Workspace</h2>
+                  <p class="tool-description">Format SQL for readability or compact it into one line.</p>
+                </div>
+              </div>
+              <span class="status">Available</span>
+            </div>
+            <div class="tool-body">
+              <div class="option-row">
+                <div class="field">
+                  <label for="sql-dialect">SQL dialect</label>
+                  <select id="sql-dialect">
+                    <option value="sql">Standard SQL</option>
+                    <option value="spark">Spark SQL</option>
+                    <option value="postgresql">PostgreSQL</option>
+                    <option value="mysql">MySQL</option>
+                    <option value="transactsql">SQL Server</option>
+                    <option value="plsql">Oracle PL/SQL</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="sql-keyword-case">Keyword case</label>
+                  <select id="sql-keyword-case">
+                    <option value="upper">UPPERCASE</option>
+                    <option value="lower">lowercase</option>
+                    <option value="preserve">Preserve</option>
+                  </select>
+                </div>
+              </div>
+              <div class="workspace">
+                <div class="field">
+                  <label for="sql-input">Input SQL</label>
+                  <textarea id="sql-input" spellcheck="false" placeholder="SELECT customer_id, SUM(amount) FROM transactions GROUP BY customer_id;"></textarea>
+                  <div class="controls">
+                    <button class="button primary" type="button" id="format-sql">
+                      <i data-lucide="align-left" aria-hidden="true"></i>
+                      Format
+                    </button>
+                    <button class="button" type="button" id="minify-sql">
+                      <i data-lucide="minimize-2" aria-hidden="true"></i>
+                      One line
+                    </button>
+                    <button class="button" type="button" id="clear-sql">
+                      <i data-lucide="trash-2" aria-hidden="true"></i>
+                      Clear
+                    </button>
+                  </div>
+                </div>
+                <div class="field">
+                  <span class="field-label">Result</span>
+                  <pre class="output" id="sql-output" tabindex="0">Your formatted SQL will appear here.</pre>
+                  <div class="controls">
+                    <button class="button" type="button" data-copy-target="sql-output">
+                      <i data-lucide="copy" aria-hidden="true"></i>
+                      Copy
+                    </button>
+                    <button class="button" type="button" id="download-sql">
+                      <i data-lucide="download" aria-hidden="true"></i>
+                      Download .sql
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <p class="message" id="sql-message" aria-live="polite"></p>
+            </div>
+          </article>
+
+          <article class="tool">
+            <div class="tool-head">
+              <div class="tool-title">
+                <span class="tool-icon"><i data-lucide="braces" aria-hidden="true"></i></span>
+                <div>
+                  <h2>JSON Formatter</h2>
+                  <p class="tool-description">Validate, format, compact, copy, or download JSON.</p>
+                </div>
+              </div>
+              <span class="status">Available</span>
+            </div>
+            <div class="tool-body">
+              <div class="workspace">
+                <div class="field">
+                  <label for="json-input">Input JSON</label>
+                  <textarea id="json-input" spellcheck="false" placeholder='{"pipeline":"bronze_to_silver","enabled":true}'></textarea>
+                  <div class="controls">
+                    <button class="button primary" type="button" id="format-json">
+                      <i data-lucide="wand-sparkles" aria-hidden="true"></i>
+                      Format
+                    </button>
+                    <button class="button" type="button" id="minify-json">
+                      <i data-lucide="minimize-2" aria-hidden="true"></i>
+                      Compact
+                    </button>
+                    <button class="button" type="button" id="clear-json">
+                      <i data-lucide="trash-2" aria-hidden="true"></i>
+                      Clear
+                    </button>
+                  </div>
+                </div>
+                <div class="field">
+                  <span class="field-label">Result</span>
+                  <pre class="output" id="json-output" tabindex="0">Your formatted JSON will appear here.</pre>
+                  <div class="controls">
+                    <button class="button" type="button" data-copy-target="json-output">
+                      <i data-lucide="copy" aria-hidden="true"></i>
+                      Copy
+                    </button>
+                    <button class="button" type="button" id="download-json">
+                      <i data-lucide="download" aria-hidden="true"></i>
+                      Download .json
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <p class="message" id="json-message" aria-live="polite"></p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="editor-tools" role="tabpanel" aria-labelledby="editor-tools-tab" hidden>
+        <div class="tool-list">
+          <article class="tool">
+            <div class="tool-head">
+              <div class="tool-title">
+                <span class="tool-icon"><i data-lucide="file-text" aria-hidden="true"></i></span>
+                <div>
+                  <h2>Markdown Studio</h2>
+                  <p class="tool-description">Turn Markdown into a clean document preview and downloadable HTML.</p>
+                </div>
+              </div>
+              <span class="status">Available</span>
+            </div>
+            <div class="tool-body">
+              <div class="workspace">
+                <div class="field">
+                  <label for="markdown-input">Markdown</label>
+                  <textarea id="markdown-input" spellcheck="false" placeholder="# Project update&#10;&#10;## Completed&#10;- Pipeline validation&#10;- Documentation"></textarea>
+                  <div class="controls">
+                    <button class="button primary" type="button" id="render-markdown">
+                      <i data-lucide="eye" aria-hidden="true"></i>
+                      Preview
+                    </button>
+                    <button class="button" type="button" id="clear-markdown">
+                      <i data-lucide="trash-2" aria-hidden="true"></i>
+                      Clear
+                    </button>
+                  </div>
+                </div>
+                <div class="field">
+                  <span class="field-label">Document preview</span>
+                  <div class="markdown-preview" id="markdown-preview">
+                    <p>Your formatted document will appear here.</p>
+                  </div>
+                  <div class="controls">
+                    <button class="button" type="button" id="copy-markdown-text">
+                      <i data-lucide="copy" aria-hidden="true"></i>
+                      Copy text
+                    </button>
+                    <button class="button" type="button" id="download-markdown-html">
+                      <i data-lucide="download" aria-hidden="true"></i>
+                      Download HTML
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <p class="message" id="markdown-message" aria-live="polite"></p>
+            </div>
+          </article>
+
+          <article class="tool">
+            <div class="tool-head">
+              <div class="tool-title">
+                <span class="tool-icon"><i data-lucide="text-cursor-input" aria-hidden="true"></i></span>
+                <div>
+                  <h2>Text Cleaner</h2>
+                  <p class="tool-description">Normalize spaces, remove empty lines, or convert a text into one line.</p>
+                </div>
+              </div>
+              <span class="status">Available</span>
+            </div>
+            <div class="tool-body">
+              <div class="checkbox-row">
+                <label class="checkbox"><input type="checkbox" id="trim-lines" checked /> Trim each line</label>
+                <label class="checkbox"><input type="checkbox" id="remove-empty" /> Remove empty lines</label>
+                <label class="checkbox"><input type="checkbox" id="collapse-spaces" checked /> Collapse repeated spaces</label>
+              </div>
+              <div class="workspace">
+                <div class="field">
+                  <label for="text-input">Input text</label>
+                  <textarea id="text-input" placeholder="Paste a message, note, caption, or document excerpt."></textarea>
+                  <div class="controls">
+                    <button class="button primary" type="button" id="clean-text">
+                      <i data-lucide="sparkles" aria-hidden="true"></i>
+                      Clean
+                    </button>
+                    <button class="button" type="button" id="text-one-line">
+                      <i data-lucide="move-horizontal" aria-hidden="true"></i>
+                      One line
+                    </button>
+                    <button class="button" type="button" id="clear-text">
+                      <i data-lucide="trash-2" aria-hidden="true"></i>
+                      Clear
+                    </button>
+                  </div>
+                </div>
+                <div class="field">
+                  <span class="field-label">Result</span>
+                  <pre class="output" id="text-output" tabindex="0">Your cleaned text will appear here.</pre>
+                  <div class="controls">
+                    <button class="button" type="button" data-copy-target="text-output">
+                      <i data-lucide="copy" aria-hidden="true"></i>
+                      Copy
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <p class="message" id="text-message" aria-live="polite"></p>
+            </div>
+          </article>
+
+          <article class="tool">
+            <div class="tool-head">
+              <div class="tool-title">
+                <span class="tool-icon"><i data-lucide="video" aria-hidden="true"></i></span>
+                <div>
+                  <h2>Media Link Helper</h2>
+                  <p class="tool-description">Identify media links and download direct files you own or are authorized to use.</p>
+                </div>
+              </div>
+              <span class="status limited">Direct files only</span>
+            </div>
+            <div class="tool-body">
+              <div class="option-row">
+                <div class="field">
+                  <label for="media-url">Media URL</label>
+                  <input id="media-url" type="url" placeholder="https://example.com/my-video.mp4" />
+                </div>
+                <div class="field">
+                  <label for="media-quality">Preferred quality</label>
+                  <select id="media-quality">
+                    <option value="original">Original</option>
+                    <option value="1080">1080p</option>
+                    <option value="720">720p</option>
+                    <option value="480">480p</option>
+                    <option value="audio">Audio only</option>
+                  </select>
+                </div>
+              </div>
+              <div class="controls">
+                <button class="button primary" type="button" id="inspect-media">
+                  <i data-lucide="scan-search" aria-hidden="true"></i>
+                  Inspect link
+                </button>
+                <a class="button" id="open-media" href="#" target="_blank" rel="noreferrer" hidden>
+                  <i data-lucide="external-link" aria-hidden="true"></i>
+                  Open file
+                </a>
+                <a class="button" id="download-media" href="#" download hidden>
+                  <i data-lucide="download" aria-hidden="true"></i>
+                  Download
+                </a>
+              </div>
+              <div class="platform-result" id="media-result" hidden>
+                <div>
+                  <strong id="media-platform">Link result</strong>
+                  <p id="media-detail"></p>
+                </div>
+                <i data-lucide="link" aria-hidden="true"></i>
+              </div>
+              <p class="message" id="media-message" aria-live="polite">
+                YouTube, TikTok, and Instagram require official platform options or a separate authorized backend. This static portfolio does not bypass platform protections.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">Gabriel Franco - practical tools for data and content workflows.</div>
+  </footer>
+
+  <script>
+    const placeholderText = {
+      sql: "Your formatted SQL will appear here.",
+      json: "Your formatted JSON will appear here.",
+      text: "Your cleaned text will appear here."
+    };
+
+    const setMessage = (id, text, type = "") => {
+      const element = document.getElementById(id);
+      element.textContent = text;
+      element.className = `message ${type}`.trim();
+    };
+
+    const downloadText = (filename, content, type = "text/plain;charset=utf-8") => {
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    };
+
+    const copyText = async (text, messageId) => {
+      if (!text || Object.values(placeholderText).includes(text)) {
+        setMessage(messageId, "Nothing to copy yet.", "error");
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(text);
+        setMessage(messageId, "Copied to clipboard.", "success");
+      } catch {
+        setMessage(messageId, "Clipboard access was blocked by the browser.", "error");
+      }
+    };
+
+    const basicSqlFormat = (sql, keywordCase) => {
+      const keywords = [
+        "SELECT", "FROM", "WHERE", "GROUP BY", "ORDER BY", "HAVING", "LIMIT",
+        "INNER JOIN", "LEFT JOIN", "RIGHT JOIN", "FULL JOIN", "CROSS JOIN",
+        "UNION ALL", "UNION", "WITH", "INSERT INTO", "UPDATE", "DELETE FROM"
+      ];
+      let result = sql.replace(/\s+/g, " ").trim();
+      keywords.forEach((keyword) => {
+        const value = keywordCase === "lower" ? keyword.toLowerCase() : keyword;
+        result = result.replace(new RegExp(`\\s+${keyword.replace(" ", "\\\\s+")}\\s+`, "gi"), `\n${value} `);
+      });
+      return result.trim();
+    };
+
+    const formatSql = () => {
+      const input = document.getElementById("sql-input").value.trim();
+      const output = document.getElementById("sql-output");
+      if (!input) {
+        setMessage("sql-message", "Paste a SQL query first.", "error");
+        return;
+      }
+
+      const dialectMap = {
+        sql: "sql",
+        spark: "spark",
+        postgresql: "postgresql",
+        mysql: "mysql",
+        transactsql: "transactsql",
+        plsql: "plsql"
+      };
+      const language = dialectMap[document.getElementById("sql-dialect").value] || "sql";
+      const keywordCase = document.getElementById("sql-keyword-case").value;
+
+      try {
+        if (window.sqlFormatter && typeof window.sqlFormatter.format === "function") {
+          output.textContent = window.sqlFormatter.format(input, {
+            language,
+            keywordCase,
+            tabWidth: 2,
+            linesBetweenQueries: 1
+          });
+        } else {
+          output.textContent = basicSqlFormat(input, keywordCase);
+        }
+        setMessage("sql-message", "SQL formatted locally in your browser.", "success");
+      } catch (error) {
+        output.textContent = input;
+        setMessage("sql-message", `Could not format this query: ${error.message}`, "error");
+      }
+    };
+
+    const minifySql = () => {
+      const input = document.getElementById("sql-input").value.trim();
+      if (!input) {
+        setMessage("sql-message", "Paste a SQL query first.", "error");
+        return;
+      }
+      document.getElementById("sql-output").textContent = input
+        .replace(/--.*$/gm, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+      setMessage("sql-message", "SQL converted to one line.", "success");
+    };
+
+    const parseJson = () => JSON.parse(document.getElementById("json-input").value);
+
+    const transformJson = (compact) => {
+      try {
+        const value = parseJson();
+        document.getElementById("json-output").textContent = JSON.stringify(value, null, compact ? 0 : 2);
+        setMessage("json-message", compact ? "JSON compacted." : "Valid JSON formatted.", "success");
+      } catch (error) {
+        setMessage("json-message", `Invalid JSON: ${error.message}`, "error");
+      }
+    };
+
+    const renderMarkdown = () => {
+      const input = document.getElementById("markdown-input").value.trim();
+      if (!input) {
+        setMessage("markdown-message", "Write or paste Markdown first.", "error");
+        return;
+      }
+      const rawHtml = window.marked ? window.marked.parse(input) : `<pre>${input.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]))}</pre>`;
+      const safeHtml = window.DOMPurify ? window.DOMPurify.sanitize(rawHtml) : rawHtml;
+      document.getElementById("markdown-preview").innerHTML = safeHtml;
+      setMessage("markdown-message", "Preview generated locally.", "success");
+    };
+
+    const cleanText = (oneLine = false) => {
+      const input = document.getElementById("text-input").value;
+      if (!input.trim()) {
+        setMessage("text-message", "Paste text first.", "error");
+        return;
+      }
+      const trimLines = document.getElementById("trim-lines").checked;
+      const removeEmpty = document.getElementById("remove-empty").checked;
+      const collapseSpaces = document.getElementById("collapse-spaces").checked;
+      let lines = input.replace(/\r\n/g, "\n").split("\n");
+      if (trimLines) lines = lines.map((line) => line.trim());
+      if (collapseSpaces) lines = lines.map((line) => line.replace(/[ \t]+/g, " "));
+      if (removeEmpty) lines = lines.filter((line) => line.length > 0);
+      let result = lines.join("\n");
+      if (oneLine) result = result.replace(/\s+/g, " ").trim();
+      document.getElementById("text-output").textContent = result;
+      setMessage("text-message", oneLine ? "Text converted to one line." : "Text cleaned.", "success");
+    };
+
+    const inspectMedia = () => {
+      const input = document.getElementById("media-url").value.trim();
+      const result = document.getElementById("media-result");
+      const openLink = document.getElementById("open-media");
+      const downloadLink = document.getElementById("download-media");
+      const quality = document.getElementById("media-quality").value;
+
+      openLink.hidden = true;
+      downloadLink.hidden = true;
+      result.hidden = true;
+
+      let url;
+      try {
+        url = new URL(input);
+      } catch {
+        setMessage("media-message", "Enter a complete and valid URL.", "error");
+        return;
+      }
+
+      const hostname = url.hostname.replace(/^www\./, "").toLowerCase();
+      const platformMap = {
+        "youtube.com": "YouTube",
+        "youtu.be": "YouTube",
+        "tiktok.com": "TikTok",
+        "instagram.com": "Instagram"
+      };
+      const platform = Object.entries(platformMap).find(([domain]) => hostname === domain || hostname.endsWith(`.${domain}`));
+      const isDirectFile = /\.(mp4|webm|mov|mp3|wav|m4a|jpg|jpeg|png|webp)(?:$|[?#])/i.test(url.href);
+
+      result.hidden = false;
+      if (platform) {
+        document.getElementById("media-platform").textContent = `${platform[1]} link detected`;
+        document.getElementById("media-detail").textContent =
+          `Requested quality: ${quality}. Use the platform's official download/export option for content you own.`;
+        setMessage(
+          "media-message",
+          "Platform extraction is not available in this static version. A future backend must enforce authorization and platform rules.",
+          "error"
+        );
+        return;
+      }
+
+      if (isDirectFile) {
+        document.getElementById("media-platform").textContent = "Direct media file detected";
+        document.getElementById("media-detail").textContent =
+          "The browser can open or request the original file. Quality conversion requires server-side processing.";
+        openLink.href = url.href;
+        downloadLink.href = url.href;
+        openLink.hidden = false;
+        downloadLink.hidden = false;
+        setMessage("media-message", "Only download files you own or are authorized to use.", "success");
+        return;
+      }
+
+      document.getElementById("media-platform").textContent = "Web page link detected";
+      document.getElementById("media-detail").textContent =
+        "This is not a direct media file. Paste an authorized direct URL ending in a supported media extension.";
+      setMessage("media-message", "No downloadable direct media file was detected.", "error");
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) window.lucide.createIcons();
+
+      document.querySelectorAll(".tab-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const target = button.dataset.tab;
+          document.querySelectorAll(".tab-button").forEach((tab) => {
+            tab.setAttribute("aria-selected", String(tab === button));
+          });
+          document.querySelectorAll(".tab-panel").forEach((panel) => {
+            panel.hidden = panel.id !== target;
+          });
+        });
+      });
+
+      document.getElementById("format-sql").addEventListener("click", formatSql);
+      document.getElementById("minify-sql").addEventListener("click", minifySql);
+      document.getElementById("clear-sql").addEventListener("click", () => {
+        document.getElementById("sql-input").value = "";
+        document.getElementById("sql-output").textContent = placeholderText.sql;
+        setMessage("sql-message", "");
+      });
+      document.getElementById("download-sql").addEventListener("click", () => {
+        const value = document.getElementById("sql-output").textContent;
+        if (value !== placeholderText.sql) downloadText("query.sql", value, "text/sql;charset=utf-8");
+      });
+
+      document.getElementById("format-json").addEventListener("click", () => transformJson(false));
+      document.getElementById("minify-json").addEventListener("click", () => transformJson(true));
+      document.getElementById("clear-json").addEventListener("click", () => {
+        document.getElementById("json-input").value = "";
+        document.getElementById("json-output").textContent = placeholderText.json;
+        setMessage("json-message", "");
+      });
+      document.getElementById("download-json").addEventListener("click", () => {
+        const value = document.getElementById("json-output").textContent;
+        if (value !== placeholderText.json) downloadText("data.json", value, "application/json;charset=utf-8");
+      });
+
+      document.getElementById("render-markdown").addEventListener("click", renderMarkdown);
+      document.getElementById("clear-markdown").addEventListener("click", () => {
+        document.getElementById("markdown-input").value = "";
+        document.getElementById("markdown-preview").innerHTML = "<p>Your formatted document will appear here.</p>";
+        setMessage("markdown-message", "");
+      });
+      document.getElementById("copy-markdown-text").addEventListener("click", () => {
+        copyText(document.getElementById("markdown-preview").innerText, "markdown-message");
+      });
+      document.getElementById("download-markdown-html").addEventListener("click", () => {
+        const content = document.getElementById("markdown-preview").innerHTML;
+        const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Markdown document</title></head><body>${content}</body></html>`;
+        downloadText("document.html", html, "text/html;charset=utf-8");
+      });
+
+      document.getElementById("clean-text").addEventListener("click", () => cleanText(false));
+      document.getElementById("text-one-line").addEventListener("click", () => cleanText(true));
+      document.getElementById("clear-text").addEventListener("click", () => {
+        document.getElementById("text-input").value = "";
+        document.getElementById("text-output").textContent = placeholderText.text;
+        setMessage("text-message", "");
+      });
+      document.getElementById("inspect-media").addEventListener("click", inspectMedia);
+
+      document.querySelectorAll("[data-copy-target]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const target = document.getElementById(button.dataset.copyTarget);
+          const messageId = button.dataset.copyTarget.split("-")[0] + "-message";
+          copyText(target.textContent, messageId);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

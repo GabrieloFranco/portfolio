@@ -16,6 +16,7 @@ Current important files:
 
 - `index.html`: full one-page portfolio with embedded CSS.
 - `tools.html`: browser-based Data Engineer and Editor utilities.
+- `assets/images/gabriel-franco-profile.png`: local profile photo used in the portfolio hero.
 - `README.md`: short repository description and deployment notes.
 - `HANDOFF.md`: this continuation guide.
 - `assets/resume/gabriel-franco-data-engineer-resume-en.html`: editable English resume.
@@ -302,3 +303,4 @@ On 2026-06-24:
 - Implemented SQL, JSON, Markdown, and text utilities.
 - Added a limited Media Link Helper for direct authorized file URLs.
 - Documented backend and platform limitations for social media downloads.
+- Replaced the remote GitHub avatar with a local circular LinkedIn-style profile photo.

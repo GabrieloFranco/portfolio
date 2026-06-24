@@ -180,6 +180,7 @@
     .portrait-wrap {
       justify-self: end;
       width: min(100%, 340px);
+      text-align: center;
     }
 
     .portrait {
@@ -187,8 +188,9 @@
       width: 100%;
       aspect-ratio: 1;
       object-fit: cover;
-      border-radius: 24px;
-      border: 1px solid rgba(22, 32, 39, 0.16);
+      object-position: center;
+      border-radius: 50%;
+      border: 5px solid rgba(255, 255, 255, 0.94);
       box-shadow: var(--shadow);
     }
 
@@ -508,8 +510,8 @@
           <div class="portrait-wrap">
             <img
               class="portrait"
-              src="https://avatars.githubusercontent.com/u/89610183?v=4"
-              alt="Gabriel Franco"
+              src="assets/images/gabriel-franco-profile.png"
+              alt="Gabriel Franco, Data Engineer"
             />
             <p class="caption">
               Sao Paulo, Brazil. Open to remote data engineering opportunities.

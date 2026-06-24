@@ -504,29 +504,6 @@
       accent-color: var(--teal);
     }
 
-    .platform-result {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 18px;
-      align-items: center;
-      margin-top: 14px;
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--surface-soft);
-    }
-
-    .platform-result strong {
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .platform-result p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.86rem;
-    }
-
     footer {
       padding: 24px 0;
       border-top: 1px solid var(--line);
@@ -557,8 +534,7 @@
         grid-template-columns: 1fr;
       }
 
-      .tool-head,
-      .platform-result {
+      .tool-head {
         grid-template-columns: 1fr;
       }
 
@@ -858,60 +834,6 @@
             </div>
           </article>
 
-          <article class="tool">
-            <div class="tool-head">
-              <div class="tool-title">
-                <span class="tool-icon"><i data-lucide="video" aria-hidden="true"></i></span>
-                <div>
-                  <h2>Media Link Helper</h2>
-                  <p class="tool-description">Identify media links and download direct files you own or are authorized to use.</p>
-                </div>
-              </div>
-              <span class="status limited">Direct files only</span>
-            </div>
-            <div class="tool-body">
-              <div class="option-row">
-                <div class="field">
-                  <label for="media-url">Media URL</label>
-                  <input id="media-url" type="url" placeholder="https://example.com/my-video.mp4" />
-                </div>
-                <div class="field">
-                  <label for="media-quality">Preferred quality</label>
-                  <select id="media-quality">
-                    <option value="original">Original</option>
-                    <option value="1080">1080p</option>
-                    <option value="720">720p</option>
-                    <option value="480">480p</option>
-                    <option value="audio">Audio only</option>
-                  </select>
-                </div>
-              </div>
-              <div class="controls">
-                <button class="button primary" type="button" id="inspect-media">
-                  <i data-lucide="scan-search" aria-hidden="true"></i>
-                  Inspect link
-                </button>
-                <a class="button" id="open-media" href="#" target="_blank" rel="noreferrer" hidden>
-                  <i data-lucide="external-link" aria-hidden="true"></i>
-                  Open file
-                </a>
-                <a class="button" id="download-media" href="#" download hidden>
-                  <i data-lucide="download" aria-hidden="true"></i>
-                  Download
-                </a>
-              </div>
-              <div class="platform-result" id="media-result" hidden>
-                <div>
-                  <strong id="media-platform">Link result</strong>
-                  <p id="media-detail"></p>
-                </div>
-                <i data-lucide="link" aria-hidden="true"></i>
-              </div>
-              <p class="message" id="media-message" aria-live="polite">
-                YouTube, TikTok, and Instagram require official platform options or a separate authorized backend. This static portfolio does not bypass platform protections.
-              </p>
-            </div>
-          </article>
         </div>
       </section>
     </div>
@@ -1067,66 +989,6 @@
       setMessage("text-message", oneLine ? "Text converted to one line." : "Text cleaned.", "success");
     };
 
-    const inspectMedia = () => {
-      const input = document.getElementById("media-url").value.trim();
-      const result = document.getElementById("media-result");
-      const openLink = document.getElementById("open-media");
-      const downloadLink = document.getElementById("download-media");
-      const quality = document.getElementById("media-quality").value;
-
-      openLink.hidden = true;
-      downloadLink.hidden = true;
-      result.hidden = true;
-
-      let url;
-      try {
-        url = new URL(input);
-      } catch {
-        setMessage("media-message", "Enter a complete and valid URL.", "error");
-        return;
-      }
-
-      const hostname = url.hostname.replace(/^www\./, "").toLowerCase();
-      const platformMap = {
-        "youtube.com": "YouTube",
-        "youtu.be": "YouTube",
-        "tiktok.com": "TikTok",
-        "instagram.com": "Instagram"
-      };
-      const platform = Object.entries(platformMap).find(([domain]) => hostname === domain || hostname.endsWith(`.${domain}`));
-      const isDirectFile = /\.(mp4|webm|mov|mp3|wav|m4a|jpg|jpeg|png|webp)(?:$|[?#])/i.test(url.href);
-
-      result.hidden = false;
-      if (platform) {
-        document.getElementById("media-platform").textContent = `${platform[1]} link detected`;
-        document.getElementById("media-detail").textContent =
-          `Requested quality: ${quality}. Use the platform's official download/export option for content you own.`;
-        setMessage(
-          "media-message",
-          "Platform extraction is not available in this static version. A future backend must enforce authorization and platform rules.",
-          "error"
-        );
-        return;
-      }
-
-      if (isDirectFile) {
-        document.getElementById("media-platform").textContent = "Direct media file detected";
-        document.getElementById("media-detail").textContent =
-          "The browser can open or request the original file. Quality conversion requires server-side processing.";
-        openLink.href = url.href;
-        downloadLink.href = url.href;
-        openLink.hidden = false;
-        downloadLink.hidden = false;
-        setMessage("media-message", "Only download files you own or are authorized to use.", "success");
-        return;
-      }
-
-      document.getElementById("media-platform").textContent = "Web page link detected";
-      document.getElementById("media-detail").textContent =
-        "This is not a direct media file. Paste an authorized direct URL ending in a supported media extension.";
-      setMessage("media-message", "No downloadable direct media file was detected.", "error");
-    };
-
     document.addEventListener("DOMContentLoaded", () => {
       if (window.lucide) window.lucide.createIcons();
 
@@ -1188,8 +1050,6 @@
         document.getElementById("text-output").textContent = placeholderText.text;
         setMessage("text-message", "");
       });
-      document.getElementById("inspect-media").addEventListener("click", inspectMedia);
-
       document.querySelectorAll("[data-copy-target]").forEach((button) => {
         button.addEventListener("click", () => {
           const target = document.getElementById(button.dataset.copyTarget);

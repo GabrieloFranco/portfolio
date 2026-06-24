@@ -177,9 +177,6 @@ Current Editor tools:
 
 - Markdown preview and HTML export.
 - Text cleaner and one-line converter.
-- Media Link Helper for direct, authorized media file URLs.
-
-The Media Link Helper intentionally does not extract videos from YouTube, TikTok, or Instagram. The static GitHub Pages site has no backend for transcoding, platform authentication, or authorization enforcement. If this feature becomes a separate application, it must only process content the user owns or is authorized to download and must respect platform rules.
 
 Third-party browser libraries are loaded from CDNs:
 
@@ -301,6 +298,5 @@ On 2026-06-24:
 - Added a `Tools` navigation item and hero link.
 - Added `tools.html` with Data Engineer Tools and Editor Tools tabs.
 - Implemented SQL, JSON, Markdown, and text utilities.
-- Added a limited Media Link Helper for direct authorized file URLs.
-- Documented backend and platform limitations for social media downloads.
+- Removed the placeholder Media Link Helper. Media processing will be developed as a separate private project before any public release.
 - Replaced the remote GitHub avatar with a local circular LinkedIn-style profile photo.

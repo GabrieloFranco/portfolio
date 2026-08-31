@@ -1,6 +1,6 @@
 # Remote Data Engineer Roadmap - Gabriel Franco
 
-Goal: move from hybrid work to full remote Data Engineering roles, preferably international, while building evidence for mid-level readiness.
+Goal: move from hybrid work to fully remote Data Engineering roles, preferably international, while building evidence for mid-level readiness.
 
 ## Current Positioning
 
@@ -357,4 +357,4 @@ Start applying when:
 
 Suggested answer:
 
-"I am currently in a hybrid role, but I am focusing my career on full remote data engineering opportunities. I work well with documentation, async communication, and structured delivery, and I am building my portfolio around practices that are common in remote teams, such as GitHub workflows, pull requests, CI/CD, and clear technical handoffs."
+"I am currently in a hybrid role, but I am focusing my career on fully remote data engineering opportunities. I work well with documentation, async communication, and structured delivery, and I am building my portfolio around practices that are common in remote teams, such as GitHub workflows, pull requests, CI/CD, and clear technical handoffs."

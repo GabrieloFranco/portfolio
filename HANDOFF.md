@@ -63,7 +63,7 @@ Current positioning:
 - Banking data, fixed-income rules, trade finance, config-driven/metadata-driven parameterization, batch orchestration, Oracle Exadata, Delta Lake.
 - Control-M remains in resume/experience as real production exposure, but public positioning should gradually move toward Apache Airflow as the modern orchestration skill.
 - Open to remote data engineering opportunities.
-- Career target: full remote Data Engineer roles, preferably international, growing toward mid-level readiness.
+- Career target: fully remote Data Engineer roles, preferably international, growing toward mid-level readiness.
 
 Avoid making the site look like a student landing page or a generic full-stack portfolio.
 
@@ -73,12 +73,6 @@ Email:
 
 ```text
 mailto:ds.gabrielfranco@gmail.com?subject=Data%20Engineering%20Opportunity&body=Hi%20Gabriel%2C%20I%20saw%20your%20profile%20and%20would%20like%20to%20talk.
-```
-
-WhatsApp:
-
-```text
-https://wa.me/5511958814398?text=Hi%20Gabriel%2C%20I%20saw%20your%20profile%20and%20would%20like%20to%20talk.
 ```
 
 LinkedIn:
@@ -148,7 +142,8 @@ Be honest about project status.
 
 Currently active:
 
-- Certification Simulator App: active prototype.
+- Certification Simulator App: active private prototype with a public overview at
+  `https://github.com/GabrieloFranco/app_simulados`.
 
 Roadmap/study areas:
 
@@ -292,6 +287,16 @@ Small emergency fixes can still be committed directly, but portfolio/project wor
 - Consider moving CSS into `styles.css` if the single-file HTML becomes hard to maintain.
 
 ## Latest Meaningful Update
+
+On 2026-08-30:
+
+- Added a compact mobile navigation menu.
+- Removed the public phone number and WhatsApp links, keeping email and LinkedIn as contact channels.
+- Linked the certification simulator to its public project overview.
+- Clarified SQL as the strongest area and labeled Airflow work as study/planned project evidence.
+- Corrected Portuguese accents and English phrasing in both resumes.
+- Removed planned certifications from the resume achievement lists.
+- Regenerated the English and Portuguese PDF resumes from their HTML sources.
 
 On 2026-06-24:
 

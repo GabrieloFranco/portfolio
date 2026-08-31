@@ -107,6 +107,53 @@
       color: var(--teal-dark);
     }
 
+    .mobile-menu {
+      display: none;
+      position: relative;
+    }
+
+    .mobile-menu summary {
+      cursor: pointer;
+      list-style: none;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 8px 12px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .mobile-menu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .mobile-menu-links {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      display: grid;
+      min-width: 180px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .mobile-menu-links a {
+      padding: 9px 10px;
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .mobile-menu-links a:hover {
+      color: var(--teal-dark);
+      background: rgba(8, 127, 122, 0.08);
+    }
+
     .hero {
       min-height: calc(100vh - 68px);
       display: grid;
@@ -442,6 +489,10 @@
         display: none;
       }
 
+      .mobile-menu {
+        display: block;
+      }
+
       .hero {
         min-height: auto;
         padding-top: 44px;
@@ -484,6 +535,17 @@
           <a href="#resume">Resume</a>
           <a href="#contact">Contact</a>
         </div>
+        <details class="mobile-menu">
+          <summary>Menu</summary>
+          <div class="mobile-menu-links">
+            <a href="#work">Work</a>
+            <a href="#stack">Stack</a>
+            <a href="#projects">Projects</a>
+            <a href="tools.html">Tools</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </details>
       </nav>
     </header>
 
@@ -501,7 +563,6 @@
             </p>
             <div class="hero-actions">
               <a class="button primary" href="mailto:ds.gabrielfranco@gmail.com?subject=Data%20Engineering%20Opportunity&body=Hi%20Gabriel%2C%20I%20saw%20your%20profile%20and%20would%20like%20to%20talk.">Email me</a>
-              <a class="button" href="https://wa.me/5511958814398?text=Hi%20Gabriel%2C%20I%20saw%20your%20profile%20and%20would%20like%20to%20talk." target="_blank" rel="noreferrer">WhatsApp</a>
               <a class="button" href="https://www.linkedin.com/in/gabrielofranco" target="_blank" rel="noreferrer">LinkedIn</a>
               <a class="button" href="https://github.com/GabrieloFranco" target="_blank" rel="noreferrer">GitHub</a>
               <a class="button" href="tools.html">Open tools</a>
@@ -551,8 +612,9 @@
             <div>
               <h2>Tools I use to move data from raw inputs to business-ready outputs.</h2>
               <p class="section-copy">
-                My strongest area is batch data engineering with SQL, Python, PySpark, Databricks,
-                Delta Lake, metadata-driven processing, schema validation, and financial data rules.
+                My strongest area is SQL-driven batch data engineering. I also work with Python,
+                PySpark, Databricks, Delta Lake, metadata-driven processing, schema validation,
+                and financial data rules.
               </p>
             </div>
           </div>
@@ -652,7 +714,7 @@
                   is adding analytics around attempts, weak topics, and learning progress.
                 </p>
               </div>
-              <a href="https://github.com/GabrieloFranco" target="_blank" rel="noreferrer">Repository coming soon</a>
+              <a href="https://github.com/GabrieloFranco/app_simulados" target="_blank" rel="noreferrer">Public project overview</a>
             </article>
             <article class="project">
               <div>
@@ -724,7 +786,6 @@
           </div>
           <div class="contact-actions">
             <a class="button" href="mailto:ds.gabrielfranco@gmail.com?subject=Data%20Engineering%20Opportunity&body=Hi%20Gabriel%2C%20I%20saw%20your%20profile%20and%20would%20like%20to%20talk.">Email</a>
-            <a class="button" href="https://wa.me/5511958814398?text=Hi%20Gabriel%2C%20I%20saw%20your%20profile%20and%20would%20like%20to%20talk." target="_blank" rel="noreferrer">WhatsApp</a>
             <a class="button" href="https://www.linkedin.com/in/gabrielofranco" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </div>

@@ -1,6 +1,7 @@
 # Gabriel Franco - Portfolio
 
-Static portfolio website for Gabriel Franco, focused on Data Engineering positioning.
+Data Engineering portfolio focused on financial pipelines, Databricks, PySpark,
+batch orchestration, data quality, and automation.
 
 ## Purpose
 
@@ -22,6 +23,12 @@ This site presents Gabriel's current professional profile, core stack, experienc
 - Data Engineer and Editor browser tools
 - Resume view/download
 - Contact
+
+## Current Public Project
+
+- [Certification Simulator](https://github.com/GabrieloFranco/app_simulados): public
+  overview of an active private prototype, with planned learning analytics and data
+  modeling milestones.
 
 ## Deploy
 

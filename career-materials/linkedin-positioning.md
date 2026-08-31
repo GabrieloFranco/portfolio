@@ -1,6 +1,6 @@
 # LinkedIn Positioning - Gabriel Franco
 
-Goal: position Gabriel for full remote Data Engineer roles, preferably international and mid-level, while staying honest about current experience, English level, and project status.
+Goal: position Gabriel for fully remote Data Engineer roles, preferably international and mid-level, while staying honest about current experience, English level, and project status.
 
 ## Recommended Headline
 
@@ -24,9 +24,9 @@ Atualmente trabalho na BRQ Digital Solutions, alocado na F1rst/Santander, na ár
 
 Antes disso, atuei como Data Analyst Intern no Santander Brasil, na plataforma de Seguros e Assistências, utilizando SQL, PySpark, Python, Databricks e Power BI para tratamento de dados, dashboards, automações de arquivos e apoio a demandas analíticas internas.
 
-Meu foco atual é evoluir para oportunidades full remote e internacionais em Engenharia de Dados. Minha trilha de desenvolvimento inclui Databricks Data Engineer Associate, Microsoft DP-750, Apache Airflow Fundamentals, GitHub Actions/CI-CD e projetos de portfólio com arquitetura Lakehouse, orquestração e qualidade de dados.
+Meu foco atual é evoluir para oportunidades 100% remotas e internacionais em Engenharia de Dados. Minha trilha de desenvolvimento inclui Databricks Data Engineer Associate, Microsoft DP-750, Apache Airflow Fundamentals, GitHub Actions/CI-CD e projetos de portfólio com arquitetura Lakehouse, orquestração e qualidade de dados.
 
-Principais competências: SQL, Python, PySpark, Spark SQL, Databricks, Delta Lake, Apache Airflow em estudo/projeto, Oracle/Exadata, Control-M, Git, GitHub, GitHub Actions, Power BI, validação de dados, validação de schemas, pipelines batch, documentação e entrega de dados para áreas de negócio.
+Principais competências: SQL, Python, PySpark, Spark SQL, Databricks, Delta Lake, Apache Airflow em estudo e com projeto público planejado, Oracle/Exadata, Control-M, Git, GitHub, GitHub Actions, Power BI, validação de dados, validação de schemas, pipelines batch, documentação e entrega de dados para áreas de negócio.
 
 ## About - English
 
@@ -36,9 +36,9 @@ Currently, I work at BRQ Digital Solutions, allocated to F1rst/Santander, in the
 
 Before that, I worked as a Data Analyst Intern at Santander Brasil in the Insurance and Assistance platform, where I used SQL, PySpark, Python, Databricks, and Power BI to transform data, build dashboards, automate file processing, and support internal analytics demands.
 
-I am currently strengthening my profile for full remote and international Data Engineering opportunities. My current learning roadmap includes Databricks Data Engineer Associate, Microsoft DP-750, Apache Airflow Fundamentals, GitHub Actions/CI-CD, and portfolio projects focused on Lakehouse architecture, workflow orchestration, and data quality.
+I am currently strengthening my profile for fully remote and international Data Engineering opportunities. My current learning roadmap includes Databricks Data Engineer Associate, Microsoft DP-750, Apache Airflow Fundamentals, GitHub Actions/CI-CD, and portfolio projects focused on Lakehouse architecture, workflow orchestration, and data quality.
 
-Core skills: SQL, Python, PySpark, Spark SQL, Databricks, Delta Lake, Apache Airflow study/project track, Oracle/Exadata, Control-M, Git, GitHub, GitHub Actions, Power BI, data validation, schema validation, batch pipelines, documentation, and business-facing data delivery.
+Core skills: SQL, Python, PySpark, Spark SQL, Databricks, Delta Lake, Apache Airflow study track with a planned public project, Oracle/Exadata, Control-M, Git, GitHub, GitHub Actions, Power BI, data validation, schema validation, batch pipelines, documentation, and business-facing data delivery.
 
 ## Experience - BRQ / F1rst-Santander
 
@@ -53,7 +53,7 @@ Data Engineer - BRQ Digital Solutions, alocado na F1rst/Santander
 - Validação de schemas e diagnóstico de problemas em pipelines Spark/Databricks, incluindo análise de tipos, escrita e consistência entre DataFrame e tabela destino.
 - Refatoramento e migração de queries Spark do ambiente on-premise para Azure Databricks, convertendo rotinas para Python/PySpark e mantendo compatibilidade com processos legados.
 - Manutenção e monitoramento de pipelines batch no Control-M: análise de logs, troubleshooting, criação/ajuste de jobs, dependências e FileWatchers em malhas de dados financeiros.
-- Transição dos conceitos de orquestração batch do Control-M para Apache Airflow em projeto público, incluindo DAGs, sensores, retries, dependências, logs e sinalização de sucesso.
+- Estudo da transição dos conceitos de orquestração batch do Control-M para Apache Airflow em um projeto público planejado, incluindo DAGs, sensores, retries, dependências, logs e sinalização de sucesso.
 - Atuação com fluxo corporativo de versionamento e entrega utilizando Git, branches, pull requests, validações de CI com GitHub Actions e deploy controlado entre ambientes.
 - Apoio a iniciativas de padronização e migração de dados financeiros com Databricks, Delta Lake, Control-M e esteiras corporativas de CI/CD.
 - Integração com Oracle/Exadata e rotinas relacionadas a drivers de cálculo financeiro.
@@ -72,7 +72,7 @@ Financial MIS
 - Validate schemas and troubleshoot Spark/Databricks pipeline issues, including data types, write behavior, and consistency between DataFrames and target tables.
 - Refactor and migrate Spark queries from on-premise environments to Azure Databricks, converting routines to Python/PySpark while preserving compatibility with legacy processes.
 - Maintain and monitor batch pipelines with Control-M, including log analysis, troubleshooting, job adjustments, dependencies, and FileWatcher routines.
-- Translate batch orchestration concepts from Control-M into Apache Airflow portfolio work, including DAGs, sensors, retries, dependencies, logs, and success markers.
+- Study how to translate batch orchestration concepts from Control-M into a planned Apache Airflow portfolio project, including DAGs, sensors, retries, dependencies, logs, and success markers.
 - Work with corporate versioning and delivery flows using Git, branches, pull requests, GitHub Actions CI validation, and controlled deployments across environments.
 - Support financial data standardization and migration initiatives using Databricks, Delta Lake, Control-M, and corporate CI/CD routines.
 - Work with Oracle/Exadata integrations and routines connected to financial calculation drivers.
@@ -100,7 +100,7 @@ Tecnologias: Power BI, PySpark, SQL, Python, Azure Databricks, Jira, Pipefy.
 Data Analyst Intern - Santander Brasil  
 Insurance and Assistance Platform
 
-- Queried, treated, and joined datasets in Databricks using SQL and PySpark across silver and gold data layers.
+- Queried, cleaned, transformed, and joined datasets in Databricks using SQL and PySpark across silver and gold data layers.
 - Built Power BI dashboards connected to Databricks to support business indicators and management reporting.
 - Developed Python automations for text and Excel file processing, reducing manual preparation before dashboard consumption.
 - Cleaned, standardized, and normalized datasets involving products, regions, payers, debtors, and credit analysis.
@@ -198,7 +198,7 @@ Recommended locations:
 
 Hi, thanks for reaching out.
 
-I am currently focused on full remote Data Engineering opportunities. My background includes SQL, PySpark, Databricks, Delta Lake, Python automation, financial data pipelines, Control-M batch orchestration/monitoring, and business-facing data delivery in banking environments. I am also building public Airflow portfolio work to translate that batch orchestration experience into modern workflow orchestration.
+I am currently focused on fully remote Data Engineering opportunities. My background includes SQL, PySpark, Databricks, Delta Lake, Python automation, financial data pipelines, Control-M batch orchestration/monitoring, and business-facing data delivery in banking environments. I am also planning public Airflow portfolio work to translate that batch orchestration experience into modern workflow orchestration.
 
 I would be happy to learn more about the role, especially the stack, remote policy, seniority expectations, and interview process.
 
@@ -209,7 +209,7 @@ Gabriel
 
 Olá, obrigado pelo contato.
 
-No momento estou priorizando oportunidades full remote em Engenharia de Dados. Tenho experiência com SQL, PySpark, Databricks, Delta Lake, automações em Python, pipelines de dados financeiros, Control-M e entrega de dados para áreas de negócio em ambiente bancário.
+No momento estou priorizando oportunidades 100% remotas em Engenharia de Dados. Tenho experiência com SQL, PySpark, Databricks, Delta Lake, automações em Python, pipelines de dados financeiros, Control-M e entrega de dados para áreas de negócio em ambiente bancário.
 
 Tenho interesse em entender melhor a vaga, principalmente stack, política de remoto, senioridade esperada e etapas do processo.
 

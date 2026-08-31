@@ -132,15 +132,66 @@
     }
 
     @media print {
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+
       body {
         background: #fff;
+        font-size: 12.5px;
+        line-height: 1.3;
       }
 
       main {
         width: 100%;
         margin: 0;
         border: 0;
-        padding: 24px;
+        padding: 0;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      h2 {
+        margin: 14px 0 7px;
+        padding-bottom: 4px;
+        break-after: avoid-page;
+        page-break-after: avoid;
+      }
+
+      h3 {
+        font-size: 13px;
+        break-after: avoid-page;
+        page-break-after: avoid;
+      }
+
+      .summary {
+        margin-top: 10px;
+      }
+
+      .role {
+        margin-bottom: 10px;
+      }
+
+      .skills {
+        grid-template-columns: 120px 1fr;
+        gap: 4px 12px;
+        font-size: 12.5px;
+      }
+
+      ul {
+        margin-top: 4px;
+      }
+
+      li {
+        margin-bottom: 2px;
+      }
+
+      .selected-project {
+        break-inside: avoid-page;
+        page-break-inside: avoid;
       }
 
       .top-actions {
@@ -156,10 +207,9 @@
     </div>
 
     <h1>Gabriel Franco Josino da Silva</h1>
-    <p class="headline">Data Engineer | PySpark | SQL | Databricks | Delta Lake | Airflow | Financial Data Pipelines</p>
+    <p class="headline">Data Engineer | SQL | PySpark | Databricks | Delta Lake | Financial Data Pipelines</p>
     <p class="contact">
-      Sao Paulo, Brazil | Open to full remote data engineering roles<br />
-      +55 11 95881-4398 |
+      Sao Paulo, Brazil | Open to fully remote data engineering roles<br />
       <a href="mailto:ds.gabrielfranco@gmail.com">ds.gabrielfranco@gmail.com</a> |
       <a href="https://www.linkedin.com/in/gabrielofranco">LinkedIn</a> |
       <a href="https://github.com/GabrieloFranco">GitHub</a> |
@@ -175,9 +225,9 @@
       config-driven/metadata-driven patterns for financial parameterization and legacy-rule
       modernization. Practical exposure to Git, branches, pull requests, GitHub Actions
       CI validation, and controlled deployments across environments. Currently
-      expanding Control-M batch operations experience into Apache Airflow through certification
-      study and a public orchestration project, while also strengthening GitHub Actions, CI/CD,
-      and cloud data engineering for full remote and international Data Engineering roles.
+      studying Apache Airflow fundamentals and planning a public project to apply orchestration
+      concepts already used with Control-M, while also strengthening GitHub Actions, CI/CD,
+      and cloud data engineering for fully remote and international Data Engineering roles.
     </p>
 
     <h2>Core Skills</h2>
@@ -187,11 +237,9 @@
       <strong>Data platforms</strong>
       <span>Azure Databricks, Delta Lake, Oracle/Exadata, Power BI</span>
       <strong>Operations</strong>
-      <span>Airflow fundamentals, Control-M orchestration/monitoring, Git, GitHub, GitHub Actions, CI/CD fundamentals, Jira, Confluence</span>
+      <span>Control-M orchestration/monitoring, Git, GitHub, GitHub Actions, CI/CD fundamentals, Jira, Confluence; Apache Airflow in study</span>
       <strong>Data engineering</strong>
       <span>Batch pipelines, ETL/ELT, data validation, schema validation, financial parameterization, config-driven/metadata-driven processing, documentation, automation</span>
-      <strong>Learning focus</strong>
-      <span>Apache Airflow Fundamentals certification, GitHub Actions, Azure Databricks certification path, Spark performance</span>
     </div>
 
     <h2>Professional Experience</h2>
@@ -210,7 +258,6 @@
         <li>Support modernization of Spark data processes from on-premise environments to Azure Databricks and cloud lakehouse platforms using Delta Lake.</li>
         <li>Work with Oracle/Exadata integrations and maintain data processing routines connected to financial calculation drivers.</li>
         <li>Maintain, monitor, and troubleshoot batch jobs with Control-M, including job status tracking, log analysis, dependency checks, FileWatcher routines, and operational support.</li>
-        <li>Map batch orchestration concepts from Control-M to Apache Airflow patterns such as DAGs, sensors, retries, dependencies, logs, and success markers for portfolio development.</li>
         <li>Work with corporate versioning and delivery flows using Git, branches, pull requests, GitHub Actions CI validation, and controlled deployments across environments.</li>
         <li>Collaborate with POs, backoffice teams, and business stakeholders to define, validate, and document data rules.</li>
       </ul>
@@ -223,7 +270,7 @@
       </div>
       <p class="meta">Insurance and Assistance Platform</p>
       <ul>
-        <li>Queried, treated, and joined datasets in Databricks using SQL and PySpark across silver and gold data layers.</li>
+        <li>Queried, cleaned, transformed, and joined datasets in Databricks using SQL and PySpark across silver and gold data layers.</li>
         <li>Built Power BI dashboards connected to Databricks to support insurance business indicators and management reporting.</li>
         <li>Developed Python automations for text and Excel file processing, reducing manual preparation before dashboard consumption.</li>
         <li>Cleaned, standardized, and normalized datasets involving products, regions, payers, debtors, and credit analysis.</li>
@@ -232,7 +279,7 @@
     </section>
 
     <h2>Selected Work</h2>
-    <section class="role">
+    <section class="role selected-project">
       <h3>Financial Data Pipelines and Business Rules</h3>
       <p>
         Development and maintenance of SQL and PySpark routines for financial data treatment,
@@ -242,16 +289,16 @@
       </p>
       <p class="meta">Technologies: SQL, Spark SQL, PySpark, Databricks, Delta Lake, Python, Oracle/Exadata, Control-M</p>
     </section>
-    <section class="role">
-      <h3>Airflow Orchestration Transition - Portfolio Track</h3>
+    <section class="role selected-project">
+      <h3>Airflow Orchestration - Project in Development</h3>
       <p>
-        Study and project track to translate production batch concepts from Control-M into
-        Apache Airflow, including DAG authoring, sensors, retries, task dependencies,
-        monitoring, and failure handling.
+        Planned project to translate production batch concepts from Control-M into Apache
+        Airflow, including DAG authoring, sensors, retries, task dependencies, monitoring,
+        and failure handling. Code and documentation are still in development.
       </p>
-      <p class="meta">Technologies: Apache Airflow, Docker, Python, GitHub Actions, CI/CD, data validation</p>
+      <p class="meta">Planned technologies: Apache Airflow, Docker, Python, GitHub Actions, CI/CD, data validation</p>
     </section>
-    <section class="role">
+    <section class="role selected-project">
       <h3>Certification Simulator App - Portfolio Project</h3>
       <p>
         Active prototype for certification practice, built with Next.js, TypeScript, Tailwind,
@@ -274,7 +321,6 @@
       <li>Databricks Academy Accreditation - Databricks Fundamentals</li>
       <li>PCP Federado - Low Platform - F1rst</li>
       <li>In progress: Databricks Certified Data Engineer Associate study path</li>
-      <li>Planned: AZ-900, Microsoft DP-750, GitHub Actions/CI-CD, Apache Airflow Fundamentals</li>
     </ul>
 
     <h2>Languages</h2>
